@@ -1,0 +1,18 @@
+<app-predict-history
+  [predictions]="predictions$ | async"
+  [activePrediction]="activePrediction$ | async"
+  (activePredictionChangedEmitter)="setActivePrediction($event)"
+></app-predict-history>
+
+<app-predict-history-details
+  [activePrediction]="activePrediction$ | async"
+  [preferredChartTypeResult]="preferredBarChartType$ | async"
+  [probabilitiesChartOrder]="probabilitiesChartOrder$ | async"
+  [xaiClassInProcess]="xaiClassInProcess$ | async"
+  [xaiPredictionInProcess]="xaiPredictionInProcess$ | async"
+  [xaiClassVisible]="xaiClassVisible$ | async"
+  (exportPredictionEmitter)="exportPrediction($event)"
+  (chartOrderChangedEmitter)="setProbabilitiesOrder($event)"
+  (generateGradCamEmitter)="generateGradCam($event)"
+  (showGradCamEmitter)="showGradCam($event)"
+></app-predict-history-details>

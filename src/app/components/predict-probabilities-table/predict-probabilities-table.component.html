@@ -1,0 +1,75 @@
+<!-- table head -->
+<table
+  class="table table-borderless"
+  *ngIf="prediction && prediction.result && prediction.model"
+>
+  <thead>
+    <tr class="border-bottom">
+      <th class="w-50">Class</th>
+      <th class="w-25">Probability</th>
+      <th class="w-25">XAI</th>
+    </tr>
+  </thead>
+</table>
+
+<!-- table body -->
+<div
+  class="table-scrollable scroll-style"
+  *ngIf="prediction && prediction.result && prediction.model"
+>
+  <table class="table table-borderless">
+    <tbody>
+      <tr
+        *ngFor="let className of prediction.model.classNames; let index = index"
+        [ngClass]="
+          needsHighlighting(prediction.result[index], prediction.result)
+            ? 'table-primary'
+            : ''
+        "
+      >
+        <td class="w-50">{{ className }}</td>
+        <td class="w-25">{{ prediction.result[index] }}</td>
+        <td class="w-25">
+          <button
+            *ngIf="
+              !prediction.xai ||
+              prediction.xai[index] === undefined ||
+              prediction.xai[index] === null
+            "
+            type="button"
+            class="btn btn-sm btn-primary"
+            [disabled]="
+              xaiPredictionInProcess !== null || xaiClassInProcess !== null
+            "
+            (click)="
+              generateGradCamEmitter.emit({
+                predictionId: prediction.id,
+                classId: index
+              })
+            "
+          >
+            <fa-icon icon="wand-magic-sparkles"></fa-icon>
+          </button>
+
+          <button
+            *ngIf="
+              prediction.xai &&
+              prediction.xai[index] !== undefined &&
+              prediction.xai[index] !== null
+            "
+            type="button"
+            class="btn btn-sm btn-success"
+            (click)="
+              showGradCamEmitter.emit({
+                predictionId: prediction.id,
+                classId: index
+              })
+            "
+          >
+            <fa-icon icon="wand-magic-sparkles"></fa-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

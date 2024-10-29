@@ -1,0 +1,151 @@
+<div class="row m-4">
+  <div class="col-lg-6 mb-4">
+    <form *ngIf="settings" [ngrxFormState]="settings">
+      <!-- Path to backend -->
+      <div class="row mt-2 mb-2">
+        <label for="settingsBackendPath" class="form-label col-md-2"
+          >Backend path</label
+        >
+        <div class="col-md-10">
+          <input
+            id="settingsBackendPath"
+            type="text"
+            class="form-control"
+            [ngrxFormControlState]="settings.controls.backendPath"
+          />
+        </div>
+      </div>
+
+      <!-- Fetch models interval -->
+      <div class="row mb-2">
+        <label for="settingsFetchInterval" class="form-label col-md-2"
+          >Fetch interval (ms)</label
+        >
+        <div class="col-md-10">
+          <input
+            id="settingsFetchInterval"
+            type="number"
+            class="form-control"
+            [ngrxFormControlState]="settings.controls.fetchModelsInterval"
+          />
+        </div>
+      </div>
+
+      <!-- Chart types: results -->
+      <div class="row mb-2">
+        <label for="settingsChartResults" class="form-label col-md-2"
+          >Chart type for results</label
+        >
+        <div class="col-md-10">
+          <select
+            id="settingsChartResults"
+            class="form-select"
+            aria-label="Chart type for results"
+            [ngrxFormControlState]="settings.controls.chartTypeResults"
+          >
+            <option [value]="0">Horizontal bar charts</option>
+            <option [value]="1">Vertical bar charts</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Chart types: metrics -->
+      <div class="row mb-2">
+        <label for="settingsChartMetrics" class="form-label col-md-2"
+          >Chart type for other metrics</label
+        >
+        <div class="col-md-10">
+          <select
+            id="settingsChartMetrics"
+            class="form-select"
+            aria-label="Chart type for metrics"
+            [ngrxFormControlState]="settings.controls.chartTypeMetrics"
+          >
+            <option [value]="0">Horizontal bar charts</option>
+            <option [value]="1">Vertical bar charts</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-grid gap-1 d-md-block">
+        <button
+          *ngIf="settings.isDisabled"
+          class="btn btn-primary m-1"
+          type="button"
+          (click)="editSettingsEmitter.emit()"
+        >
+          Edit settings
+        </button>
+        <button
+          *ngIf="settings.isEnabled"
+          class="btn btn-primary m-1"
+          type="button"
+          (click)="discardSettingsChangesEmitter.emit()"
+        >
+          Discard changes
+        </button>
+        <button
+          *ngIf="settings.isEnabled"
+          class="btn btn-primary m-1"
+          type="button"
+          (click)="saveSettingsEmitter.emit()"
+        >
+          Save changes
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="col-lg-6 mb-4">
+    <div class="card">
+      <div class="card-body">
+        <app-icon-item
+          fontIcon="chevron-circle-right"
+          [content]="infoBackendPath"
+        ></app-icon-item>
+        <app-icon-item
+          fontIcon="chevron-circle-right"
+          [content]="infoFetchInterval"
+        ></app-icon-item>
+        <app-icon-item
+          fontIcon="chevron-circle-right"
+          [content]="infoChartResult"
+        ></app-icon-item>
+        <app-icon-item
+          fontIcon="chevron-circle-right"
+          [content]="infoChartMetrics"
+        ></app-icon-item>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #infoBackendPath>
+  <p>
+    The <b>backend path</b> should point to the server, that holds your data.
+    Please note, that the application requires a certain directory structure and
+    expects certain files.
+  </p>
+</ng-template>
+
+<ng-template #infoFetchInterval>
+  <p>
+    With <b>fetch intervals</b>, you set how often the application will check
+    the backend for new files. Keep in mind, that calling the backend often, may
+    impact the application's performance.
+  </p>
+</ng-template>
+
+<ng-template #infoChartResult>
+  <p>
+    The <b>chart type for results</b> defines, if we display the prediction
+    results as horizontal or vertical bar chart.
+  </p>
+</ng-template>
+
+<ng-template #infoChartMetrics>
+  <p>
+    The <b>chart type for other metrics</b> defines, how to display other
+    metrics, for instance evaluation metrics like recall, precision or AUC.
+  </p>
+</ng-template>

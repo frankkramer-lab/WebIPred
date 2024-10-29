@@ -1,0 +1,53 @@
+<!-- filter form -->
+<input
+  *ngIf="modelFilterTerm !== null"
+  #filterTerm
+  id="filterTerm"
+  class="form-control"
+  type="text"
+  placeholder="Search ..."
+  aria-label="model filter term"
+  [value]="modelFilterTerm"
+  (input)="filterTermChangedEmitter.emit(filterTerm.value)"
+/>
+
+<!-- table head -->
+<table class="table table-borderless">
+  <thead>
+    <tr class="border-bottom">
+      <th class="w-50">Name</th>
+      <th class="w-25">Discipline</th>
+      <th class="w-25">Procedure</th>
+      <th class="w-25 text-end">Multi-label</th>
+    </tr>
+  </thead>
+</table>
+
+<!-- table content -->
+<div class="table-scrollable scroll-style mb-3">
+  <table class="table table-borderless">
+    <tbody>
+      <tr
+        *ngFor="let model of availableModels"
+        (click)="modelSelectionChangedEmitter.emit(model)"
+        [ngClass]="activeModel === model ? 'table-primary' : ''"
+        class="cursor"
+      >
+        <td class="w-50">{{ model.name | crop : 50 }}</td>
+        <td class="w-25">{{ model.medicalDiscipline }}</td>
+        <td class="w-25">{{ model.medicalProcedure }}</td>
+        <td
+          class="w-25 text-center"
+          [ngClass]="model.isMultiLabel ? 'text-primary' : 'text-secondary'"
+        >
+          <span *ngIf="model.isMultiLabel">
+            <fa-icon icon="check-circle"></fa-icon>
+          </span>
+          <span *ngIf="!model.isMultiLabel">
+            <fa-icon icon="xmark-circle"></fa-icon>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

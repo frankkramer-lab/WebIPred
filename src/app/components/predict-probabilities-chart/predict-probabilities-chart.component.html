@@ -1,0 +1,106 @@
+<div
+  class="btn-group"
+  role="group"
+  aria-label="Select probabilities chart variant"
+>
+  <input
+    type="radio"
+    class="btn-check"
+    name="orderClass"
+    id="orderClass"
+    autocomplete="off"
+    (click)="chartOrderChangedEmitter.emit('name')"
+    [checked]="preferredChartOrderType === 'name'"
+  />
+  <label class="btn btn-outline-primary" for="orderClass">Default</label>
+
+  <input
+    type="radio"
+    class="btn-check"
+    name="orderDesc"
+    id="orderDesc"
+    autocomplete="off"
+    (click)="chartOrderChangedEmitter.emit('p_desc')"
+    [checked]="preferredChartOrderType === 'p_desc'"
+  />
+  <label class="btn btn-outline-primary" for="orderDesc">Descending</label>
+
+  <input
+    type="radio"
+    class="btn-check"
+    name="orderAsc"
+    id="orderAsc"
+    autocomplete="off"
+    (click)="chartOrderChangedEmitter.emit('p_asc')"
+    [checked]="preferredChartOrderType === 'p_asc'"
+  />
+  <label class="btn btn-outline-primary" for="orderAsc">Ascending</label>
+</div>
+
+<!-- horizontal -->
+<ng-container *ngIf="preferredChartType === 0">
+  <app-chart-hbar
+    *ngIf="
+      prediction &&
+      prediction.resultChartByClass &&
+      preferredChartOrderType === 'name'
+    "
+    [chart]="prediction.resultChartByClass"
+    xAxisLabel="Probability"
+    yAxisLabel="Class"
+  ></app-chart-hbar>
+  <app-chart-hbar
+    *ngIf="
+      prediction &&
+      prediction.resultChartByProbabilityDesc &&
+      preferredChartOrderType === 'p_desc'
+    "
+    [chart]="prediction.resultChartByProbabilityDesc"
+    xAxisLabel="Probability"
+    yAxisLabel="Class"
+  ></app-chart-hbar>
+  <app-chart-hbar
+    *ngIf="
+      prediction &&
+      prediction.resultChartByProbabilityAsc &&
+      preferredChartOrderType === 'p_asc'
+    "
+    [chart]="prediction.resultChartByProbabilityAsc"
+    xAxisLabel="Probability"
+    yAxisLabel="Class"
+  ></app-chart-hbar>
+</ng-container>
+
+<!-- vertical -->
+<ng-container *ngIf="preferredChartType === 1">
+  <app-chart-vbar
+    *ngIf="
+      prediction &&
+      prediction.resultChartByClass &&
+      preferredChartOrderType === 'name'
+    "
+    [chart]="prediction.resultChartByClass"
+    yAxisLabel="Probability"
+    xAxisLabel="Class"
+  ></app-chart-vbar>
+  <app-chart-vbar
+    *ngIf="
+      prediction &&
+      prediction.resultChartByProbabilityDesc &&
+      preferredChartOrderType === 'p_desc'
+    "
+    [chart]="prediction.resultChartByProbabilityDesc"
+    yAxisLabel="Probability"
+    xAxisLabel="Class"
+  ></app-chart-vbar>
+  <app-chart-vbar
+    *ngIf="
+      prediction &&
+      prediction.resultChartByProbabilityAsc &&
+      preferredChartOrderType === 'p_asc'
+    "
+    [chart]="prediction.resultChartByProbabilityAsc"
+    yAxisLabel="Probability"
+    xAxisLabel="Class"
+  ></app-chart-vbar>
+</ng-container>

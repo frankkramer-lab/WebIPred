@@ -1,0 +1,691 @@
+{
+    "models": [
+        {
+            "id": 12,
+            "name": "Skin Lesion Images for Melanoma Classification (ISIC)",
+            "description": "This model was trained on the training data set for the <a href='https://challenge.isic-archive.com/landing/2019/' target='_blank'>ISIC 2019 challenge</a>. Training data already includes data from previous years (2018 and 2017). It consists of 25,331 dermoscopic images among nine different diagnostic categories: <ul><li>Melanoma</li><li>Melanocytic nevus</li><li>Basal cell carcinoma</li><li>Actinic keratosis</li><li>Benign keratosis (solar lentigo / seborrheic keratosis / lichen planus-like keratosis)</li><li>Dermatofibroma</li><li>Vascular lesion</li><li>Squamous cell carcinoma</li><li>None of the above</li></ul>The model was trained using <a href='https://github.com/frankkramer-lab/aucmedi/blob/master/examples/framework/01_dermatoscopy_notebook.ipynb' target='_blank'>this script</a>; a summary of its performance can be found <a href='https://github.com/frankkramer-lab/aucmedi/blob/master/examples/framework/PM_01_dermatology.pdf' target='_blank'>here</a>.",
+            "isMultiClass": true,
+            "isMultiLabel": false,
+            "resizeWidth": 224,
+            "resizeHeight": 224,
+            "numberOfColorChannels": 0,
+            "zenodoDepositID": 7785982,
+            "modelFileID": "5ddbe8f7-aa55-4e32-abe3-bdb648ce4fbf",
+            "modelFileIDconverted": "01d22f47-7a48-4c8e-b24c-54b969db217a",
+            "pythonEvalFileID": "de0a7f5b-8b47-44de-9443-ac3640d722c3",
+            "jsEvalFileID": "10c1ba20-5ec9-4206-b18b-673e04804eda",
+            "localPyModelLink": "/models/12/model.h5",
+            "localJSModelLink": "/models/12/model.json",
+            "localpythonEvalFileLink": "/models/12/eval/metrics-python.json",
+            "localjsEvalFileLink": "/models/12/eval/metrics-javascript.json",
+            "standardizeMode": "torch",
+            "resizeMode": 1,
+            "medicalDiscipline": "Dermatology",
+            "medicalProcedure": "Dermatoscopy",
+            "lastmodified": "2023-03-30 14:35:08.970747",
+            "staticAndZenodoUpToDate": true,
+            "classes": [
+                {
+                    "index": 0,
+                    "name": "MEL"
+                },
+                {
+                    "index": 1,
+                    "name": "NV"
+                },
+                {
+                    "index": 2,
+                    "name": "BCC"
+                },
+                {
+                    "index": 3,
+                    "name": "AK"
+                },
+                {
+                    "index": 4,
+                    "name": "BKL"
+                },
+                {
+                    "index": 5,
+                    "name": "DF"
+                },
+                {
+                    "index": 6,
+                    "name": "VASC"
+                },
+                {
+                    "index": 7,
+                    "name": "SCC"
+                }
+            ],
+            "references": [
+                {
+                    "id": 32,
+                    "citation": "Tschandl, P., Rosendahl, C., & Kittler, H. (2018). The HAM10000 dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions. Scientific data, 5(1), 1-9.",
+                    "link": "https://www.nature.com/articles/sdata2018161"
+                },
+                {
+                    "id": 33,
+                    "citation": "Codella, N. C., Gutman, D., Celebi, M. E., Helba, B., Marchetti, M. A., Dusza, S. W., ... & Halpern, A. (2018, April). Skin lesion analysis toward melanoma detection: A challenge at the 2017 international symposium on biomedical imaging (isbi), hosted by the international skin imaging collaboration (isic). In 2018 IEEE 15th international symposium on biomedical imaging (ISBI 2018) (pp. 168-172). IEEE.",
+                    "link": "https://ieeexplore.ieee.org/abstract/document/8363547"
+                },
+                {
+                    "id": 34,
+                    "citation": "Combalia, M., Codella, N. C., Rotemberg, V., Helba, B., Vilaplana, V., Reiter, O., ... & Malvehy, J. (2019). Bcn20000: Dermoscopic lesions in the wild. arXiv preprint arXiv:1908.02288.",
+                    "link": "https://arxiv.org/abs/1908.02288"
+                },
+                {
+                    "id": 35,
+                    "citation": "M\u00fcller, D., Mayer, S., Hartmann, D., Schneider, P., Soto-Rey, I., & Kramer, F. (2022). AUCMEDI: a framework for Automated Classification of Medical Images (Version X.Y.Z) [Computer software]. https://doi.org/10.5281/zenodo.6633540. GitHub repository. https://github.com/frankkramer-lab/aucmedi",
+                    "link": "https://github.com/frankkramer-lab/aucmedi"
+                },
+                {
+                    "id": 36,
+                    "citation": "Mayer, S., M\u00fcller, D., & Kramer, F. (2022). Standardized Medical Image Classification across Medical Disciplines. arXiv preprint arXiv:2210.11091.",
+                    "link": "https://arxiv.org/abs/2210.11091"
+                }
+            ],
+            "links": {
+                "model": "/models/12/model.h5",
+                "convertedModel": "/models/12/model.json",
+                "evalPython": "/models/12/eval/metrics-python.json",
+                "evalJs": "/models/12/eval/metrics-javascript.json"
+            }
+        },
+        {
+            "id": 13,
+            "name": "The Hyper Kvasir Dataset Landmark Classification (Lower GI tract)",
+            "description": "This model was trained to identify anatomical landmarks in the <b>lower</b> GI tract during an endoscopy. Training was done on the <a href='https://www.kaggle.com/datasets/kelkalot/the-hyper-kvasir-dataset' target='_blank'>Hyper-Kvasir dataset</a>, which is the largest publicly released gastrointestinal tract image dataset. In total, the dataset contains 110,079 images and 373 videos where it captures anatomical landmarks and pathological and normal findings. The results is more than 1,1 million images and video frames all together. The paper describing the data can be accessed <a href='https://www.nature.com/articles/s41597-020-00622-y' target='_blank'>here</a>. Here you will find the files used to prepare the dataset, create the baseline experiments, and the official k-fold splits of the dataset. Available classes are <ul><li>cecum</li><li>ileum</li><li>retroflex-rectum</li></ul>The model was trained using <a href='https://github.com/frankkramer-lab/aucmedi/blob/master/examples/framework/02_gi-endoscopy-lower_notebook.ipynb' target='_blank'>this script</a>; a summary of its performance can be found <a href='https://github.com/frankkramer-lab/aucmedi/blob/master/examples/framework/PM_02_gastroenterology_lower.pdf' target='_blank'>here</a>.",
+            "isMultiClass": true,
+            "isMultiLabel": false,
+            "resizeWidth": 224,
+            "resizeHeight": 224,
+            "numberOfColorChannels": 0,
+            "zenodoDepositID": 7785986,
+            "modelFileID": "1f4a3a00-b655-47f3-9d4e-085e34dfdec9",
+            "modelFileIDconverted": "22c5ee4c-4d22-434c-a21f-44f4f6b863cf",
+            "pythonEvalFileID": "340340bb-6499-458c-942c-8a52e345c07f",
+            "jsEvalFileID": "7a92f2f5-5dd4-4a97-b262-4be255fd0309",
+            "localPyModelLink": "/models/13/model.h5",
+            "localJSModelLink": "/models/13/model.json",
+            "localpythonEvalFileLink": "/models/13/eval/metrics-python.json",
+            "localjsEvalFileLink": "/models/13/eval/metrics-javascript.json",
+            "standardizeMode": "torch",
+            "resizeMode": 1,
+            "medicalDiscipline": "Gastroenterology",
+            "medicalProcedure": "Endoscopy",
+            "lastmodified": "2023-03-30 14:36:11.476046",
+            "staticAndZenodoUpToDate": true,
+            "classes": [
+                {
+                    "index": 0,
+                    "name": "cecum"
+                },
+                {
+                    "index": 1,
+                    "name": "ileum"
+                },
+                {
+                    "index": 2,
+                    "name": "retroflex-rectum"
+                }
+            ],
+            "references": [
+                {
+                    "id": 63,
+                    "citation": "Borgli, H., Thambawita, V., Smedsrud, P. H., Hicks, S., Jha, D., Eskeland, S. L., ... & de Lange, T. (2020). HyperKvasir, a comprehensive multi-class image and video dataset for gastrointestinal endoscopy. Scientific data, 7(1), 283.",
+                    "link": "https://www.nature.com/articles/s41597-020-00622-y"
+                },
+                {
+                    "id": 64,
+                    "citation": "M\u00fcller, D., Mayer, S., Hartmann, D., Schneider, P., Soto-Rey, I., & Kramer, F. (2022). AUCMEDI: a framework for Automated Classification of Medical Images (Version X.Y.Z) [Computer software]. https://doi.org/10.5281/zenodo.6633540. GitHub repository. https://github.com/frankkramer-lab/aucmedi",
+                    "link": "https://github.com/frankkramer-lab/aucmedi"
+                },
+                {
+                    "id": 65,
+                    "citation": "Mayer, S., M\u00fcller, D., & Kramer, F. (2022). Standardized Medical Image Classification across Medical Disciplines. arXiv preprint arXiv:2210.11091.",
+                    "link": "https://arxiv.org/abs/2210.11091"
+                }
+            ],
+            "links": {
+                "model": "/models/13/model.h5",
+                "convertedModel": "/models/13/model.json",
+                "evalPython": "/models/13/eval/metrics-python.json",
+                "evalJs": "/models/13/eval/metrics-javascript.json"
+            }
+        },
+        {
+            "id": 14,
+            "name": "The Hyper Kvasir Dataset Landmark Classification (Upper GI tract)",
+            "description": "This model was trained to identify anatomical landmarks in the <b>upper</b> GI tract during an endoscopy. Training was done on the <a href='https://www.kaggle.com/datasets/kelkalot/the-hyper-kvasir-dataset' target='_blank'>Hyper-Kvasir dataset</a>, which is the largest publicly released gastrointestinal tract image dataset. In total, the dataset contains 110,079 images and 373 videos where it captures anatomical landmarks and pathological and normal findings. The results is more than 1,1 million images and video frames all together. The paper describing the data can be accessed <a href='https://www.nature.com/articles/s41597-020-00622-y' target='_blank'>here</a>. Here you will find the files used to prepare the dataset, create the baseline experiments, and the official k-fold splits of the dataset. Available classes are <ul><li>pylorus</li><li>retroflex-stomach</li><li>z-line</li></ul>The model was trained using <a href='https://github.com/frankkramer-lab/aucmedi/blob/master/examples/framework/03_gi-endoscopy-upper_notebook.ipynb' target='_blank'>this script</a>; a summary of its performance can be found <a href='https://github.com/frankkramer-lab/aucmedi/blob/master/examples/framework/PM_03_gastroenterology_upper.pdf' target='_blank'>here</a>.",
+            "isMultiClass": true,
+            "isMultiLabel": false,
+            "resizeWidth": 224,
+            "resizeHeight": 224,
+            "numberOfColorChannels": 0,
+            "zenodoDepositID": 7785989,
+            "modelFileID": "c5aa77f3-8892-4ddf-8c8e-0251eebade51",
+            "modelFileIDconverted": "bb499ddb-1a73-462d-9880-4fdce826a548",
+            "pythonEvalFileID": "4f229fc0-6b9a-4447-b1f8-472ba5005e57",
+            "jsEvalFileID": "ddccd1ba-81dc-4a93-ab76-53f1a4659a7a",
+            "localPyModelLink": "/models/14/model.h5",
+            "localJSModelLink": "/models/14/model.json",
+            "localpythonEvalFileLink": "/models/14/eval/metrics-python.json",
+            "localjsEvalFileLink": "/models/14/eval/metrics-javascript.json",
+            "standardizeMode": "torch",
+            "resizeMode": 1,
+            "medicalDiscipline": "Gastroenterology",
+            "medicalProcedure": "Endoscopy",
+            "lastmodified": "2023-03-30 14:36:46.231013",
+            "staticAndZenodoUpToDate": true,
+            "classes": [
+                {
+                    "index": 0,
+                    "name": "pylorus"
+                },
+                {
+                    "index": 1,
+                    "name": "retroflex-stomach"
+                },
+                {
+                    "index": 2,
+                    "name": "z-line"
+                }
+            ],
+            "references": [
+                {
+                    "id": 60,
+                    "citation": "Borgli, H., Thambawita, V., Smedsrud, P. H., Hicks, S., Jha, D., Eskeland, S. L., ... & de Lange, T. (2020). HyperKvasir, a comprehensive multi-class image and video dataset for gastrointestinal endoscopy. Scientific data, 7(1), 283.",
+                    "link": "https://www.nature.com/articles/s41597-020-00622-y"
+                },
+                {
+                    "id": 61,
+                    "citation": "M\u00fcller, D., Mayer, S., Hartmann, D., Schneider, P., Soto-Rey, I., & Kramer, F. (2022). AUCMEDI: a framework for Automated Classification of Medical Images (Version X.Y.Z) [Computer software]. https://doi.org/10.5281/zenodo.6633540. GitHub repository. https://github.com/frankkramer-lab/aucmedi",
+                    "link": "https://github.com/frankkramer-lab/aucmedi"
+                },
+                {
+                    "id": 62,
+                    "citation": "Mayer, S., M\u00fcller, D., & Kramer, F. (2022). Standardized Medical Image Classification across Medical Disciplines. arXiv preprint arXiv:2210.11091.",
+                    "link": "https://arxiv.org/abs/2210.11091"
+                }
+            ],
+            "links": {
+                "model": "/models/14/model.h5",
+                "convertedModel": "/models/14/model.json",
+                "evalPython": "/models/14/eval/metrics-python.json",
+                "evalJs": "/models/14/eval/metrics-javascript.json"
+            }
+        },
+        {
+            "id": 15,
+            "name": "Breast Histopathology Images",
+            "description": "Goal of this model is to identify Invasive Ductal Carcinoma (IDC), which is the most common subtype of all breast cancers. The original files are located here: <a href='http://gleason.case.edu/webdata/jpi-dl-tutorial/IDC_regular_ps50_idx5.zip' target='_blank'>http://gleason.case.edu/webdata/jpi-dl-tutorial/IDC_regular_ps50_idx5.zip</a>. Citation: <a href='https://www.ncbi.nlm.nih.gov/pubmed/27563488' target='_blank'>https://www.ncbi.nlm.nih.gov/pubmed/27563488</a> and <a href='http://spie.org/Publications/Proceedings/Paper/10.1117/12.2043872' target='_blank'>http://spie.org/Publications/Proceedings/Paper/10.1117/12.2043872</a>. Available classes are <ul><li>0</li><li>1</li></ul>The model was trained using <a href='https://github.com/frankkramer-lab/aucmedi/blob/master/examples/framework/04_histopathology_notebook.ipynb' target='_blank'>this script</a>; a summary of its performance can be found <a href='https://github.com/frankkramer-lab/aucmedi/blob/master/examples/framework/PM_04_histopathology.pdf' target='_blank'>here</a>.",
+            "isMultiClass": true,
+            "isMultiLabel": false,
+            "resizeWidth": 224,
+            "resizeHeight": 224,
+            "numberOfColorChannels": 0,
+            "zenodoDepositID": 7785992,
+            "modelFileID": "b15c02a7-e5f9-409a-82cf-e5a95a530fd8",
+            "modelFileIDconverted": "ed7427f3-6703-4dd0-afe3-a6e873003e85",
+            "pythonEvalFileID": "a5452d28-316c-4b40-9347-a775cfa5d98a",
+            "jsEvalFileID": "4d87381e-48ae-4917-830e-02b4109ea090",
+            "localPyModelLink": "/models/15/model.h5",
+            "localJSModelLink": "/models/15/model.json",
+            "localpythonEvalFileLink": "/models/15/eval/metrics-python.json",
+            "localjsEvalFileLink": "/models/15/eval/metrics-javascript.json",
+            "standardizeMode": "torch",
+            "resizeMode": 1,
+            "medicalDiscipline": "Histopathology",
+            "medicalProcedure": "Microscopy",
+            "lastmodified": "2023-03-30 14:37:24.841257",
+            "staticAndZenodoUpToDate": true,
+            "classes": [
+                {
+                    "index": 0,
+                    "name": "0"
+                },
+                {
+                    "index": 1,
+                    "name": "1"
+                }
+            ],
+            "references": [
+                {
+                    "id": 43,
+                    "citation": "Janowczyk, A., & Madabhushi, A. (2016). Deep learning for digital pathology image analysis: A comprehensive tutorial with selected use cases. Journal of pathology informatics, 7(1), 29.",
+                    "link": "https://www.sciencedirect.com/science/article/pii/S2153353922005478"
+                },
+                {
+                    "id": 44,
+                    "citation": "Cruz-Roa, A., Basavanhally, A., Gonz\u00e1lez, F., Gilmore, H., Feldman, M., Ganesan, S., ... & Madabhushi, A. (2014, March). Automatic detection of invasive ductal carcinoma in whole slide images with convolutional neural networks. In Medical Imaging 2014: Digital Pathology (Vol. 9041, p. 904103). SPIE.",
+                    "link": "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/9041/1/Automatic-detection-of-invasive-ductal-carcinoma-in-whole-slide-images/10.1117/12.2043872.short"
+                }
+            ],
+            "links": {
+                "model": "/models/15/model.h5",
+                "convertedModel": "/models/15/model.json",
+                "evalPython": "/models/15/eval/metrics-python.json",
+                "evalJs": "/models/15/eval/metrics-javascript.json"
+            }
+        },
+        {
+            "id": 16,
+            "name": "Chest X-Ray Images (Pneumonia)",
+            "description": "This model was trained to detect, if a patient was suffering from pneumonia based on his / her X-ray (anterior-posterior). Available classes are <ul><li>NORMAL</li><li>PNEUMONIA</li></ul>The model was trained using <a href='https://github.com/frankkramer-lab/aucmedi/blob/master/examples/framework/05_xray_notebook.ipynb' target='_blank'>this script</a>; a summary of its performance can be found <a href='https://github.com/frankkramer-lab/aucmedi/blob/master/examples/framework/PM_05_radiology_x_ray.pdf' target='_blank'>here</a>.",
+            "isMultiClass": true,
+            "isMultiLabel": false,
+            "resizeWidth": 224,
+            "resizeHeight": 224,
+            "numberOfColorChannels": 0,
+            "zenodoDepositID": 7785993,
+            "modelFileID": "0fbb36fe-4575-46c3-8931-6d938741ca6d",
+            "modelFileIDconverted": "d6f682a1-d49c-4d5a-a4cc-59f98603e164",
+            "pythonEvalFileID": "de0331df-2862-410f-b722-183f3c4ce17b",
+            "jsEvalFileID": "c2c218d8-171a-4ece-9cde-bc8681eddcd6",
+            "localPyModelLink": "/models/16/model.h5",
+            "localJSModelLink": "/models/16/model.json",
+            "localpythonEvalFileLink": "/models/16/eval/metrics-python.json",
+            "localjsEvalFileLink": "/models/16/eval/metrics-javascript.json",
+            "standardizeMode": "torch",
+            "resizeMode": 1,
+            "medicalDiscipline": "Radiology",
+            "medicalProcedure": "X-ray",
+            "lastmodified": "2023-03-30 14:37:59.915797",
+            "staticAndZenodoUpToDate": true,
+            "classes": [
+                {
+                    "index": 0,
+                    "name": "NORMAL"
+                },
+                {
+                    "index": 1,
+                    "name": "PNEUMONIA"
+                }
+            ],
+            "references": [
+                {
+                    "id": 45,
+                    "citation": "Ning, W., Lei, S., Yang, J., Cao, Y., Jiang, P., Yang, Q., ... & Wang, Z. (2020). Open resource of clinical data from patients with pneumonia for the prediction of COVID-19 outcomes via deep learning. Nature biomedical engineering, 4(12), 1197-1207.",
+                    "link": "https://www.nature.com/articles/s41551-020-00633-5"
+                },
+                {
+                    "id": 46,
+                    "citation": "M\u00fcller, D., Mayer, S., Hartmann, D., Schneider, P., Soto-Rey, I., & Kramer, F. (2022). AUCMEDI: a framework for Automated Classification of Medical Images (Version X.Y.Z) [Computer software]. https://doi.org/10.5281/zenodo.6633540. GitHub repository. https://github.com/frankkramer-lab/aucmedi",
+                    "link": "https://github.com/frankkramer-lab/aucmedi"
+                },
+                {
+                    "id": 47,
+                    "citation": "Mayer, S., M\u00fcller, D., & Kramer, F. (2022). Standardized Medical Image Classification across Medical Disciplines. arXiv preprint arXiv:2210.11091.",
+                    "link": "https://arxiv.org/abs/2210.11091"
+                }
+            ],
+            "links": {
+                "model": "/models/16/model.h5",
+                "convertedModel": "/models/16/model.json",
+                "evalPython": "/models/16/eval/metrics-python.json",
+                "evalJs": "/models/16/eval/metrics-javascript.json"
+            }
+        },
+        {
+            "id": 17,
+            "name": "Breast Ultrasound Images Dataset",
+            "description": "This model was trained to classify breast ultrasound images among women in ages between 25 and 75 years old. The images are categorized into three classes, which are <ul><li>normal</li><li>benign</li><li>malignant</li></ul>The model was trained using <a href='https://github.com/frankkramer-lab/aucmedi/blob/master/examples/framework/06_ultrasound_notebook.ipynb' target='_blank'>this script</a>; a summary of its performance can be found <a href='https://github.com/frankkramer-lab/aucmedi/blob/master/examples/framework/PM_06_gynecology.pdf' target='_blank'>here</a>.",
+            "isMultiClass": true,
+            "isMultiLabel": false,
+            "resizeWidth": 224,
+            "resizeHeight": 224,
+            "numberOfColorChannels": 0,
+            "zenodoDepositID": 7785996,
+            "modelFileID": "fc1ed4ce-9f0f-4ea5-a6b2-7bd221ba9139",
+            "modelFileIDconverted": "73a96837-d4a3-44f0-8494-b5f5acb1e704",
+            "pythonEvalFileID": "05a6352f-0341-4f05-ac9c-2d40c0210251",
+            "jsEvalFileID": "5a8c8004-013d-44a6-b6de-43cf09604835",
+            "localPyModelLink": "/models/17/model.h5",
+            "localJSModelLink": "/models/17/model.json",
+            "localpythonEvalFileLink": "/models/17/eval/metrics-python.json",
+            "localjsEvalFileLink": "/models/17/eval/metrics-javascript.json",
+            "standardizeMode": "torch",
+            "resizeMode": 1,
+            "medicalDiscipline": "Gynaecology",
+            "medicalProcedure": "Ultrasound",
+            "lastmodified": "2023-03-30 14:38:29.421976",
+            "staticAndZenodoUpToDate": true,
+            "classes": [
+                {
+                    "index": 0,
+                    "name": "normal"
+                },
+                {
+                    "index": 1,
+                    "name": "benign"
+                },
+                {
+                    "index": 2,
+                    "name": "malignant"
+                }
+            ],
+            "references": [
+                {
+                    "id": 48,
+                    "citation": "Al-Dhabyani, W., Gomaa, M., Khaled, H., & Fahmy, A. (2020). Dataset of breast ultrasound images. Data in brief, 28, 104863.",
+                    "link": "https://www.sciencedirect.com/science/article/pii/S2352340919312181"
+                },
+                {
+                    "id": 49,
+                    "citation": "M\u00fcller, D., Mayer, S., Hartmann, D., Schneider, P., Soto-Rey, I., & Kramer, F. (2022). AUCMEDI: a framework for Automated Classification of Medical Images (Version X.Y.Z) [Computer software]. https://doi.org/10.5281/zenodo.6633540. GitHub repository. https://github.com/frankkramer-lab/aucmedi",
+                    "link": "https://github.com/frankkramer-lab/aucmedi"
+                },
+                {
+                    "id": 50,
+                    "citation": "Mayer, S., M\u00fcller, D., & Kramer, F. (2022). Standardized Medical Image Classification across Medical Disciplines. arXiv preprint arXiv:2210.11091.",
+                    "link": "https://arxiv.org/abs/2210.11091"
+                }
+            ],
+            "links": {
+                "model": "/models/17/model.h5",
+                "convertedModel": "/models/17/model.json",
+                "evalPython": "/models/17/eval/metrics-python.json",
+                "evalJs": "/models/17/eval/metrics-javascript.json"
+            }
+        },
+        {
+            "id": 18,
+            "name": "CT Scans for COVID-19 Classification",
+            "description": "Goal of this model is to identify, if a patient is suffering from COVID-19 or not, based on his / her chest CT. Original images were collected by the authors <a href='https://europepmc.org/article/ppr/ppr141530' target='_blank'>of this paper</a>. The original images were collected from: <a href='http://ictf.biocuckoo.cn/' target='_blank'>http://ictcf.biocuckoo.cn/</a>. Available classes are <ul><li>non-informative CT (NiCT) images where lung parenchyma was not captured for any judgment</li><li>negative CT (nCT) images where imaging features in both lungs were irrelevant to COVID-19 pneumonia</li><li>positive CT (pCT) images where imaging features associated with COVID-19 pneumonia could be unambiguously discerned</li></ul>The model was trained using <a href='https://github.com/frankkramer-lab/aucmedi/blob/master/examples/framework/07_ct-covid_notebook.ipynb' target='_blank'>this script</a>; a summary of its performance can be found <a href='https://github.com/frankkramer-lab/aucmedi/blob/master/examples/framework/PM_07_radiology_ct.pdf' target='_blank'>here</a>.",
+            "isMultiClass": true,
+            "isMultiLabel": false,
+            "resizeWidth": 224,
+            "resizeHeight": 224,
+            "numberOfColorChannels": 0,
+            "zenodoDepositID": 7786001,
+            "modelFileID": "3630fc86-bc7c-448a-8958-8150f2dfb48b",
+            "modelFileIDconverted": "ee0d888e-e304-4e3a-941f-619b44d38736",
+            "pythonEvalFileID": "5922c30b-2d3f-49aa-b1a1-3cccbf8e3b31",
+            "jsEvalFileID": "7a1d8870-1b9b-46cb-80db-91bea34836e8",
+            "localPyModelLink": "/models/18/model.h5",
+            "localJSModelLink": "/models/18/model.json",
+            "localpythonEvalFileLink": "/models/18/eval/metrics-python.json",
+            "localjsEvalFileLink": "/models/18/eval/metrics-javascript.json",
+            "standardizeMode": "torch",
+            "resizeMode": 1,
+            "medicalDiscipline": "Radiology",
+            "medicalProcedure": "Computed Tomography",
+            "lastmodified": "2023-03-30 14:38:58.034608",
+            "staticAndZenodoUpToDate": true,
+            "classes": [
+                {
+                    "index": 0,
+                    "name": "NiCT"
+                },
+                {
+                    "index": 1,
+                    "name": "nCT"
+                },
+                {
+                    "index": 2,
+                    "name": "pCT"
+                }
+            ],
+            "references": [
+                {
+                    "id": 51,
+                    "citation": "Kermany, D. S., Goldbaum, M., Cai, W., Valentim, C. C., Liang, H., Baxter, S. L., ... & Zhang, K. (2018). Identifying medical diagnoses and treatable diseases by image-based deep learning. cell, 172(5), 1122-1131.",
+                    "link": "https://www.sciencedirect.com/science/article/pii/S0092867418301545"
+                },
+                {
+                    "id": 52,
+                    "citation": "M\u00fcller, D., Mayer, S., Hartmann, D., Schneider, P., Soto-Rey, I., & Kramer, F. (2022). AUCMEDI: a framework for Automated Classification of Medical Images (Version X.Y.Z) [Computer software]. https://doi.org/10.5281/zenodo.6633540. GitHub repository. https://github.com/frankkramer-lab/aucmedi",
+                    "link": "https://github.com/frankkramer-lab/aucmedi"
+                },
+                {
+                    "id": 53,
+                    "citation": "Mayer, S., M\u00fcller, D., & Kramer, F. (2022). Standardized Medical Image Classification across Medical Disciplines. arXiv preprint arXiv:2210.11091.",
+                    "link": "https://arxiv.org/abs/2210.11091"
+                }
+            ],
+            "links": {
+                "model": "/models/18/model.h5",
+                "convertedModel": "/models/18/model.json",
+                "evalPython": "/models/18/eval/metrics-python.json",
+                "evalJs": "/models/18/eval/metrics-javascript.json"
+            }
+        },
+        {
+            "id": 19,
+            "name": "Retinal Fundus Multi-Disease Image Dataset (RFMiD)",
+            "description": "This model was trained on a dataset created for <a href='https://riadd.grand-challenge.org/Home/' target='_blank'>RIADD's</a> classification sub-challenge.It's a multi-class, multi-label classification task, where a wide range of diseases is to be detected in ophthalmological images. Classes that can be found are: <ul><li>DR</li><li>ARMD</li><li>MH</li><li>DN</li><li>MYA</li><li>BRVO</li><li>TSLN</li><li>ERM</li><li>LS</li><li>MS</li><li>CSR</li><li>ODC</li><li>CRVO</li><li>TV</li><li>AH</li><li>ODP</li><li>ODE</li><li>ST</li><li>AION</li><li>PT</li><li>RT</li><li>RS</li><li>CRS</li><li>EDN</li><li>RPEC</li><li>MHL</li><li>RP</li><li>OTHER</li><li>NORMAL</li></ul>The model was trained using <a href='https://github.com/frankkramer-lab/aucmedi/blob/master/examples/framework/08_riadd_notebook.ipynb' target='_blank'>this script</a>; a summary of its performance can be found <a href='https://github.com/frankkramer-lab/aucmedi/blob/master/examples/framework/PM_08_ophtalmology.pdf' target='_blank'>here</a>.",
+            "isMultiClass": true,
+            "isMultiLabel": true,
+            "resizeWidth": 224,
+            "resizeHeight": 224,
+            "numberOfColorChannels": 0,
+            "zenodoDepositID": 7786002,
+            "modelFileID": "7d85e622-a3bd-4cc8-985b-cc56541e3331",
+            "modelFileIDconverted": "970b53dc-27db-4b5d-b815-99a4b159be7c",
+            "pythonEvalFileID": "81b4312e-a71b-4341-b163-6842b0158ef8",
+            "jsEvalFileID": "a5042a71-d42b-48e0-9ff0-28c3c70a58be",
+            "localPyModelLink": "/models/19/model.h5",
+            "localJSModelLink": "/models/19/model.json",
+            "localpythonEvalFileLink": "/models/19/eval/metrics-python.json",
+            "localjsEvalFileLink": "/models/19/eval/metrics-javascript.json",
+            "standardizeMode": "torch",
+            "resizeMode": 1,
+            "medicalDiscipline": "Ophthalmology",
+            "medicalProcedure": "Retinal Imaging",
+            "lastmodified": "2023-03-30 14:39:32.912705",
+            "staticAndZenodoUpToDate": true,
+            "classes": [
+                {
+                    "index": 0,
+                    "name": "DR"
+                },
+                {
+                    "index": 1,
+                    "name": "ARMD"
+                },
+                {
+                    "index": 2,
+                    "name": "MH"
+                },
+                {
+                    "index": 3,
+                    "name": "DN"
+                },
+                {
+                    "index": 4,
+                    "name": "MYA"
+                },
+                {
+                    "index": 5,
+                    "name": "BRVO"
+                },
+                {
+                    "index": 6,
+                    "name": "TSLN"
+                },
+                {
+                    "index": 7,
+                    "name": "ERM"
+                },
+                {
+                    "index": 8,
+                    "name": "LS"
+                },
+                {
+                    "index": 9,
+                    "name": "MS"
+                },
+                {
+                    "index": 10,
+                    "name": "CSR"
+                },
+                {
+                    "index": 11,
+                    "name": "ODC"
+                },
+                {
+                    "index": 12,
+                    "name": "CRVO"
+                },
+                {
+                    "index": 13,
+                    "name": "TV"
+                },
+                {
+                    "index": 14,
+                    "name": "AH"
+                },
+                {
+                    "index": 15,
+                    "name": "ODP"
+                },
+                {
+                    "index": 16,
+                    "name": "ODE"
+                },
+                {
+                    "index": 17,
+                    "name": "ST"
+                },
+                {
+                    "index": 18,
+                    "name": "AION"
+                },
+                {
+                    "index": 19,
+                    "name": "PT"
+                },
+                {
+                    "index": 20,
+                    "name": "RT"
+                },
+                {
+                    "index": 21,
+                    "name": "RS"
+                },
+                {
+                    "index": 22,
+                    "name": "CRS"
+                },
+                {
+                    "index": 23,
+                    "name": "EDN"
+                },
+                {
+                    "index": 24,
+                    "name": "RPEC"
+                },
+                {
+                    "index": 25,
+                    "name": "MHL"
+                },
+                {
+                    "index": 26,
+                    "name": "RP"
+                },
+                {
+                    "index": 27,
+                    "name": "OTHER"
+                },
+                {
+                    "index": 28,
+                    "name": "NORMAL"
+                }
+            ],
+            "references": [
+                {
+                    "id": 54,
+                    "citation": "Pachade, S., Porwal, P., Thulkar, D., Kokare, M., Deshmukh, G., Sahasrabuddhe, V., ... & M\u00e9riaudeau, F. (2021). Retinal fundus multi-disease image dataset (rfmid): A dataset for multi-disease detection research. Data, 6(2), 14.",
+                    "link": "https://www.mdpi.com/2306-5729/6/2/14"
+                },
+                {
+                    "id": 55,
+                    "citation": "M\u00fcller, D., Mayer, S., Hartmann, D., Schneider, P., Soto-Rey, I., & Kramer, F. (2022). AUCMEDI: a framework for Automated Classification of Medical Images (Version X.Y.Z) [Computer software]. https://doi.org/10.5281/zenodo.6633540. GitHub repository. https://github.com/frankkramer-lab/aucmedi",
+                    "link": "https://github.com/frankkramer-lab/aucmedi"
+                },
+                {
+                    "id": 56,
+                    "citation": "Mayer, S., M\u00fcller, D., & Kramer, F. (2022). Standardized Medical Image Classification across Medical Disciplines. arXiv preprint arXiv:2210.11091.",
+                    "link": "https://arxiv.org/abs/2210.11091"
+                }
+            ],
+            "links": {
+                "model": "/models/19/model.h5",
+                "convertedModel": "/models/19/model.json",
+                "evalPython": "/models/19/eval/metrics-python.json",
+                "evalJs": "/models/19/eval/metrics-javascript.json"
+            }
+        },
+        {
+            "id": 20,
+            "name": "Brain Tumor MRI Dataset",
+            "description": "This model was trained to determine, if a patient suffers from glioma, meningioma, pituitary or no tumor. It was trained on a combination of the following three datasets: <ul><li><a href='https://figshare.com/articles/dataset/brain_tumor_dataset/1512427' target='_blank'>figshare</a></li><li><a href='https://www.kaggle.com/datasets/sartajbhuvaji/brain-tumor-classification-mri' target='_blank'>SARTAJ dataset</a></li><li> <a href='https://www.kaggle.com/datasets/ahmedhamada0/brain-tumor-detection?select=no' target='_blank'>Br35H</a> </li></ul>The resulting dataset contains 7022 images of human brain MRI images which are classified into 4 classes: <ul><li>glioma</li><li>meningioma</li><li>no tumor</li><li>pituitary</li></ul>No tumor class images were taken from the Br35H dataset. The model was trained using <a href='https://github.com/frankkramer-lab/aucmedi/blob/master/examples/framework/09_mri_notebook.ipynb' target='_blank'>this script</a>; a summary of its performance can be found <a href='https://github.com/frankkramer-lab/aucmedi/blob/master/examples/framework/PM_09_neurology.pdf' target='_blank'>here</a>.",
+            "isMultiClass": true,
+            "isMultiLabel": false,
+            "resizeWidth": 224,
+            "resizeHeight": 224,
+            "numberOfColorChannels": 0,
+            "zenodoDepositID": 7786009,
+            "modelFileID": "d3562779-4869-4437-a4d2-c609a8d5e5d0",
+            "modelFileIDconverted": "35f15a00-296f-4c29-a573-d34964eea91d",
+            "pythonEvalFileID": "a6f702b4-c8db-4559-9136-6c7d18976867",
+            "jsEvalFileID": "a1487f3d-fb69-4a26-83d2-4790cd479a89",
+            "localPyModelLink": "/models/20/model.h5",
+            "localJSModelLink": "/models/20/model.json",
+            "localpythonEvalFileLink": "/models/20/eval/metrics-python.json",
+            "localjsEvalFileLink": "/models/20/eval/metrics-javascript.json",
+            "standardizeMode": "torch",
+            "resizeMode": 1,
+            "medicalDiscipline": "Neurology",
+            "medicalProcedure": "Magnetic Resonance Imaging",
+            "lastmodified": "2023-03-30 14:40:06.432531",
+            "staticAndZenodoUpToDate": true,
+            "classes": [
+                {
+                    "index": 0,
+                    "name": "glioma"
+                },
+                {
+                    "index": 1,
+                    "name": "meningioma"
+                },
+                {
+                    "index": 2,
+                    "name": "notumor"
+                },
+                {
+                    "index": 3,
+                    "name": "pituitary"
+                }
+            ],
+            "references": [
+                {
+                    "id": 57,
+                    "citation": "Nickparvar M. Brain Tumor MRI Dataset [Kaggle].",
+                    "link": "https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset"
+                },
+                {
+                    "id": 58,
+                    "citation": "M\u00fcller, D., Mayer, S., Hartmann, D., Schneider, P., Soto-Rey, I., & Kramer, F. (2022). AUCMEDI: a framework for Automated Classification of Medical Images (Version X.Y.Z) [Computer software]. https://doi.org/10.5281/zenodo.6633540. GitHub repository. https://github.com/frankkramer-lab/aucmedi",
+                    "link": "https://github.com/frankkramer-lab/aucmedi"
+                },
+                {
+                    "id": 59,
+                    "citation": "Mayer, S., M\u00fcller, D., & Kramer, F. (2022). Standardized Medical Image Classification across Medical Disciplines. arXiv preprint arXiv:2210.11091.",
+                    "link": "https://arxiv.org/abs/2210.11091"
+                }
+            ],
+            "links": {
+                "model": "/models/20/model.h5",
+                "convertedModel": "/models/20/model.json",
+                "evalPython": "/models/20/eval/metrics-python.json",
+                "evalJs": "/models/20/eval/metrics-javascript.json"
+            }
+        }
+    ],
+    "pagination_links": {
+        "prev": "/models?offset=1&limit=9",
+        "next": "/models?offset=9&limit=9"
+    }
+}

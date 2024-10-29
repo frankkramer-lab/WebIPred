@@ -1,0 +1,20 @@
+<!-- table + description -->
+<div class="row m-2">
+  <!-- table -->
+  <div [ngClass]="activeModel === null ? 'col-12' : 'col-7'">
+    <app-model-list
+      [availableModels]="availableModels"
+      [activeModel]="activeModel"
+      [modelFilterTerm]="filterTerm"
+      (modelSelectionChangedEmitter)="setModelEmitter.emit($event)"
+      (filterTermChangedEmitter)="filterTermChangedEmitter.emit($event)"
+    ></app-model-list>
+  </div>
+  <!-- description -->
+  <div class="col-5" *ngIf="activeModel">
+    <app-model-info
+      [model]="activeModel"
+      (copyModelIdEmitter)="copyModelIdEmitter.emit($event)"
+    ></app-model-info>
+  </div>
+</div>

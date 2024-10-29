@@ -1,0 +1,58 @@
+<!-- No predictions yet -->
+<div
+  *ngIf="predictions && predictions.length === 0"
+  class="alert alert-primary m-2"
+  role="alert"
+>
+  <h6 class="display-6">No predictions yet!</h6>
+  <p>
+    There are no predictions yet.
+    <a routerLink="/predict/new">Start predicting</a> and return to check out,
+    what your model generated!
+  </p>
+</div>
+
+<!-- Table overview -->
+<div *ngIf="predictions && predictions.length > 0">
+  <!-- Table head -->
+  <table class="table table-borderless">
+    <thead>
+      <tr class="border-bottom">
+        <th class="w-50">Created on</th>
+        <th class="w-50">Model</th>
+      </tr>
+    </thead>
+  </table>
+
+  <!-- Table body -->
+  <div class="table-scrollable scroll-style">
+    <table class="table table-borderless">
+      <tbody>
+        <tr
+          *ngFor="let prediction of predictions"
+          class="cursor"
+          (click)="activePredictionChangedEmitter.emit(prediction)"
+          [ngClass]="
+            activePrediction && activePrediction.id === prediction.id
+              ? 'table-primary'
+              : ''
+          "
+        >
+          <td class="w-50">
+            <!-- spinner -->
+            <span *ngIf="prediction.inProcessing">
+              <div class="spinner-border spinner-border-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </span>
+            <span *ngIf="!prediction.inProcessing && prediction.result">
+              <fa-icon icon="check-circle"></fa-icon>
+            </span>
+            {{ prediction.createdOn | date : "medium" }}
+          </td>
+          <td class="w-50">{{ prediction.model.name | crop : 100 }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

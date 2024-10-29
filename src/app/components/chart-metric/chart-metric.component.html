@@ -1,0 +1,30 @@
+<ng-container *ngIf="metric">
+  <div class="card m-2">
+    <div class="card-body">
+      <div class="row">
+        <!-- info about this metric -->
+        <div class="col-lg-4">
+          <!-- info -->
+          <app-chart-metric-info [metric]="metric"></app-chart-metric-info>
+
+          <!-- confusion matrix mode -->
+          <app-chart-metric-info-cm
+            *ngIf="metric.key && metric.key.startsWith('confusion_matrix')"
+            [confusionMatrixFormat]="preferredConfusionMatrixFormat"
+            (confusionMatrixFormatChangedEmitter)="
+              confusionMatrixModeChangedEmitter.emit($event)
+            "
+          ></app-chart-metric-info-cm>
+        </div>
+
+        <!-- chart -->
+        <div class="col-lg-8">
+          <app-chart-metric-chart
+            [metric]="metric"
+            [preferredBarChartFormat]="preferredBarChartFormat"
+          ></app-chart-metric-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

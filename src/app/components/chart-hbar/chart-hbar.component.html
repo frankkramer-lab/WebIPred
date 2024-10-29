@@ -1,0 +1,18 @@
+<h6 class="display-6" *ngIf="title">{{ title }}</h6>
+
+<ngx-charts-bar-horizontal
+  scheme="picnic"
+  [roundEdges]="false"
+  [legend]="true"
+  [legendPosition]="legendPosition"
+  [showDataLabel]="true"
+  [showXAxisLabel]="true"
+  [showYAxisLabel]="true"
+  [xAxis]="true"
+  [yAxis]="true"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  [results]="chart"
+  [xScaleMax]="1"
+>
+</ngx-charts-bar-horizontal>

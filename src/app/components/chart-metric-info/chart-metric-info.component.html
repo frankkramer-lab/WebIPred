@@ -1,0 +1,9 @@
+<div class="mt-4" *ngIf="metric">
+  <h6 class="display-6 card-title">
+    {{ metric.name ?? (metric.key | evalName | titlecase) }}
+  </h6>
+  <div
+    class="card-text"
+    [innerHTML]="metric.description ?? (metric.key | evalDescription)"
+  ></div>
+</div>

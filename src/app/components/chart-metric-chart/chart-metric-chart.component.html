@@ -1,0 +1,106 @@
+<ng-container *ngIf="metric">
+  <!-- confusion matrix -->
+  <div
+    *ngIf="
+      metric.key.startsWith('confusion_matrix') &&
+      (metric.chartPy || metric.chartJs)
+    "
+  >
+    <div class="row">
+      <div class="col-lg-6">
+        <app-chart-heatmap
+          *ngIf="metric.chartPy"
+          [chart]="metric.chartPy"
+          title="Confusion matrix (Python)"
+          xAxisLabel="Predicted label"
+          yAxisLabel="True label"
+        ></app-chart-heatmap>
+      </div>
+      <div class="col-lg-6">
+        <app-chart-heatmap
+          *ngIf="metric.chartJs"
+          [chart]="metric.chartJs"
+          title="Confusion matrix (JavaScript)"
+          xAxisLabel="Predicted label"
+          yAxisLabel="True label"
+        ></app-chart-heatmap>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROC -->
+  <div *ngIf="metric.key === 'roc' && (metric.chartPy || metric.chartJs)">
+    <div class="row">
+      <div class="col-lg-6">
+        <app-chart-line
+          *ngIf="metric.chartPy"
+          [chart]="metric.chartPy"
+          title="ROC (Python)"
+          xAxisLabel="FPR"
+          yAxisLabel="TPR"
+        ></app-chart-line>
+      </div>
+      <div class="col-lg-6">
+        <app-chart-line
+          *ngIf="metric.chartJs"
+          [chart]="metric.chartJs"
+          title="ROC (JavaScript)"
+          xAxisLabel="FPR"
+          yAxisLabel="TPR"
+        ></app-chart-line>
+      </div>
+    </div>
+  </div>
+
+  <!-- distribution chart -->
+  <div
+    *ngIf="metric.key === 'distribution' && (metric.chartPy || metric.chartJs)"
+  >
+    <!-- horizontal -->
+    <div *ngIf="preferredBarChartFormat === 0">
+      <app-chart-hbar
+        [chart]="metric.chartJs ?? metric.chartPy ?? []"
+        [xAxisLabel]="metric.name ?? (metric.key | evalName | titlecase)"
+        yAxisLabel="Classes"
+      ></app-chart-hbar>
+    </div>
+
+    <!-- vertical -->
+    <div *ngIf="preferredBarChartFormat === 1">
+      <app-chart-vbar
+        [chart]="metric.chartJs ?? metric.chartPy ?? []"
+        [yAxisLabel]="metric.name ?? (metric.key | evalName | titlecase)"
+        xAxisLabel="Classes"
+      ></app-chart-vbar>
+    </div>
+  </div>
+
+  <!-- any other chart -->
+  <div
+    *ngIf="
+      metric &&
+      metric.chartGrouped &&
+      metric.key !== 'distribution' &&
+      metric.key !== 'roc' &&
+      !metric.key.startsWith('confusion_matrix')
+    "
+  >
+    <!-- horizontal -->
+    <div *ngIf="preferredBarChartFormat === 0">
+      <app-chart-hbar-grouped
+        [chart]="metric.chartGrouped"
+        [xAxisLabel]="metric.name ?? (metric.key | evalName | titlecase)"
+        yAxisLabel="Classes"
+      ></app-chart-hbar-grouped>
+    </div>
+
+    <!-- vertical -->
+    <div *ngIf="preferredBarChartFormat === 1">
+      <app-chart-vbar-grouped
+        [chart]="metric.chartGrouped"
+        [yAxisLabel]="metric.name ?? (metric.key | evalName | titlecase)"
+        xAxisLabel="Classes"
+      ></app-chart-vbar-grouped>
+    </div>
+  </div>
+</ng-container>

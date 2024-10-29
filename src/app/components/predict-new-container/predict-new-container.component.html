@@ -1,0 +1,12 @@
+<app-predict-new
+  [predictForm]="predictForm$ | async"
+  [predictionId]="predictionId$ | async"
+  [availableModels]="availableModels$ | async"
+  [modelFilterTerm]="modelFilterTerm$ | async"
+  (stepChangedEmitter)="changeStep($event)"
+  (modelSelectionChangedEmitter)="setModel($event)"
+  (createPredictionEmitter)="startPrediction($event)"
+  (resetFormEmitter)="resetNewPredictionForm()"
+  (copyModelIdEmitter)="copyModelId($event)"
+  (filterTermChangedEmitter)="setFilterTerm($event)"
+></app-predict-new>

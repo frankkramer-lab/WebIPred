@@ -1,0 +1,8 @@
+<div class="padded">
+  <app-settings
+    [settings]="settings$ | async"
+    (editSettingsEmitter)="enableSettingsForm()"
+    (saveSettingsEmitter)="disableSettingsForm()"
+    (discardSettingsChangesEmitter)="discardSettingsForm()"
+  ></app-settings>
+</div>

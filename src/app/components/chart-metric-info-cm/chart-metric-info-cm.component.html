@@ -1,0 +1,50 @@
+<div class="form-check">
+  <input
+    class="form-check-input"
+    type="radio"
+    name="cmAbsolute"
+    id="cmAbsolute"
+    (change)="confusionMatrixFormatChangedEmitter.emit('raw')"
+    [checked]="confusionMatrixFormat === 'raw'"
+  />
+  <label class="form-check-label" for="cmAbsolute"> Absolute numbers </label>
+</div>
+<div class="form-check">
+  <input
+    class="form-check-input"
+    type="radio"
+    name="cmNormalizedAll"
+    id="cmNormalizedAll"
+    (change)="confusionMatrixFormatChangedEmitter.emit('all')"
+    [checked]="confusionMatrixFormat === 'all'"
+  />
+  <label class="form-check-label" for="cmNormalizedAll">
+    Normalized over rows and columns
+  </label>
+</div>
+<div class="form-check">
+  <input
+    class="form-check-input"
+    type="radio"
+    name="cmNormalizedRows"
+    id="cmNormalizedRows"
+    (change)="confusionMatrixFormatChangedEmitter.emit('rows')"
+    [checked]="confusionMatrixFormat === 'rows'"
+  />
+  <label class="form-check-label" for="cmNormalizedRows">
+    Normalized over rows
+  </label>
+</div>
+<div class="form-check">
+  <input
+    class="form-check-input"
+    type="radio"
+    name="cmNormalizedColumns"
+    id="cmNormalizedColumns"
+    (change)="confusionMatrixFormatChangedEmitter.emit('cols')"
+    [checked]="confusionMatrixFormat === 'cols'"
+  />
+  <label class="form-check-label" for="cmNormalizedColumns">
+    Normalized over columns
+  </label>
+</div>

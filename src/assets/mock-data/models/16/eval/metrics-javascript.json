@@ -1,0 +1,744 @@
+{
+    "confusion_matrix_raw": [
+        {
+            "name": "NORMAL",
+            "series": [
+                {
+                    "name": "NORMAL",
+                    "value": 317.0
+                },
+                {
+                    "name": "PNEUMONIA",
+                    "value": 18.0
+                }
+            ]
+        },
+        {
+            "name": "PNEUMONIA",
+            "series": [
+                {
+                    "name": "NORMAL",
+                    "value": 0.0
+                },
+                {
+                    "name": "PNEUMONIA",
+                    "value": 837.0
+                }
+            ]
+        }
+    ],
+    "confusion_matrix_rows": [
+        {
+            "name": "NORMAL",
+            "series": [
+                {
+                    "name": "NORMAL",
+                    "value": 1.0
+                },
+                {
+                    "name": "PNEUMONIA",
+                    "value": 0.021052631578947368
+                }
+            ]
+        },
+        {
+            "name": "PNEUMONIA",
+            "series": [
+                {
+                    "name": "NORMAL",
+                    "value": 0.0
+                },
+                {
+                    "name": "PNEUMONIA",
+                    "value": 0.9789473684210527
+                }
+            ]
+        }
+    ],
+    "confusion_matrix_cols": [
+        {
+            "name": "NORMAL",
+            "series": [
+                {
+                    "name": "NORMAL",
+                    "value": 0.9462686567164179
+                },
+                {
+                    "name": "PNEUMONIA",
+                    "value": 0.05373134328358209
+                }
+            ]
+        },
+        {
+            "name": "PNEUMONIA",
+            "series": [
+                {
+                    "name": "NORMAL",
+                    "value": 0.0
+                },
+                {
+                    "name": "PNEUMONIA",
+                    "value": 1.0
+                }
+            ]
+        }
+    ],
+    "confusion_matrix_all": [
+        {
+            "name": "NORMAL",
+            "series": [
+                {
+                    "name": "NORMAL",
+                    "value": 0.27047781569965873
+                },
+                {
+                    "name": "PNEUMONIA",
+                    "value": 0.015358361774744027
+                }
+            ]
+        },
+        {
+            "name": "PNEUMONIA",
+            "series": [
+                {
+                    "name": "NORMAL",
+                    "value": 0.0
+                },
+                {
+                    "name": "PNEUMONIA",
+                    "value": 0.7141638225255973
+                }
+            ]
+        }
+    ],
+    "recall": [
+        {
+            "name": "NORMAL",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": 1.0
+                }
+            ]
+        },
+        {
+            "name": "PNEUMONIA",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": 0.9789473684210527
+                }
+            ]
+        }
+    ],
+    "specificity": [
+        {
+            "name": "NORMAL",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": 0.9789473684210527
+                }
+            ]
+        },
+        {
+            "name": "PNEUMONIA",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": 1.0
+                }
+            ]
+        }
+    ],
+    "precision": [
+        {
+            "name": "NORMAL",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": 0.9462686567164179
+                }
+            ]
+        },
+        {
+            "name": "PNEUMONIA",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": 1.0
+                }
+            ]
+        }
+    ],
+    "accuracy": [
+        {
+            "name": "NORMAL",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": 0.984641638225256
+                }
+            ]
+        },
+        {
+            "name": "PNEUMONIA",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": 0.984641638225256
+                }
+            ]
+        }
+    ],
+    "f1": [
+        {
+            "name": "NORMAL",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": 0.9723926380368099
+                }
+            ]
+        },
+        {
+            "name": "PNEUMONIA",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": 0.9893617021276596
+                }
+            ]
+        }
+    ],
+    "fdr": [
+        {
+            "name": "NORMAL",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": 0.05373134328358209
+                }
+            ]
+        },
+        {
+            "name": "PNEUMONIA",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": 0.0
+                }
+            ]
+        }
+    ],
+    "fnr": [
+        {
+            "name": "NORMAL",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": 0.0
+                }
+            ]
+        },
+        {
+            "name": "PNEUMONIA",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": 0.021052631578947368
+                }
+            ]
+        }
+    ],
+    "fpr": [
+        {
+            "name": "NORMAL",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": 0.021052631578947368
+                }
+            ]
+        },
+        {
+            "name": "PNEUMONIA",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": 0.0
+                }
+            ]
+        }
+    ],
+    "auc": [
+        {
+            "name": "NORMAL",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": 0.999232571439113
+                }
+            ]
+        },
+        {
+            "name": "PNEUMONIA",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": 0.999232571439113
+                }
+            ]
+        }
+    ],
+    "distribution": [
+        {
+            "name": "NORMAL",
+            "value": 317
+        },
+        {
+            "name": "PNEUMONIA",
+            "value": 855
+        }
+    ],
+    "duration": [
+        {
+            "name": "Preprocessing",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": "8937.00000"
+                }
+            ]
+        },
+        {
+            "name": "Prediction",
+            "series": [
+                {
+                    "name": "JavaScript",
+                    "value": "154740.00000"
+                }
+            ]
+        }
+    ],
+    "roc": [
+        {
+            "name": "NORMAL",
+            "series": [
+                {
+                    "name": 0.0,
+                    "value": 0.0
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.0031545741324921135
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.7760252365930599
+                },
+                {
+                    "name": 0.0011695906432748538,
+                    "value": 0.7760252365930599
+                },
+                {
+                    "name": 0.0011695906432748538,
+                    "value": 0.8548895899053628
+                },
+                {
+                    "name": 0.0023391812865497076,
+                    "value": 0.8548895899053628
+                },
+                {
+                    "name": 0.0023391812865497076,
+                    "value": 0.9148264984227129
+                },
+                {
+                    "name": 0.0035087719298245615,
+                    "value": 0.9148264984227129
+                },
+                {
+                    "name": 0.0035087719298245615,
+                    "value": 0.9589905362776026
+                },
+                {
+                    "name": 0.004678362573099415,
+                    "value": 0.9589905362776026
+                },
+                {
+                    "name": 0.004678362573099415,
+                    "value": 0.9621451104100947
+                },
+                {
+                    "name": 0.005847953216374269,
+                    "value": 0.9621451104100947
+                },
+                {
+                    "name": 0.005847953216374269,
+                    "value": 0.9716088328075709
+                },
+                {
+                    "name": 0.007017543859649123,
+                    "value": 0.9716088328075709
+                },
+                {
+                    "name": 0.007017543859649123,
+                    "value": 0.9779179810725552
+                },
+                {
+                    "name": 0.008187134502923977,
+                    "value": 0.9779179810725552
+                },
+                {
+                    "name": 0.008187134502923977,
+                    "value": 0.9842271293375394
+                },
+                {
+                    "name": 0.00935672514619883,
+                    "value": 0.9842271293375394
+                },
+                {
+                    "name": 0.00935672514619883,
+                    "value": 0.9873817034700315
+                },
+                {
+                    "name": 0.012865497076023392,
+                    "value": 0.9873817034700315
+                },
+                {
+                    "name": 0.012865497076023392,
+                    "value": 0.9905362776025236
+                },
+                {
+                    "name": 0.0152046783625731,
+                    "value": 0.9905362776025236
+                },
+                {
+                    "name": 0.0152046783625731,
+                    "value": 1.0
+                },
+                {
+                    "name": 0.3192982456140351,
+                    "value": 1.0
+                },
+                {
+                    "name": 0.3216374269005848,
+                    "value": 1.0
+                },
+                {
+                    "name": 0.408187134502924,
+                    "value": 1.0
+                },
+                {
+                    "name": 0.4105263157894737,
+                    "value": 1.0
+                },
+                {
+                    "name": 1.0,
+                    "value": 1.0
+                }
+            ]
+        },
+        {
+            "name": "PNEUMONIA",
+            "series": [
+                {
+                    "name": 0.0,
+                    "value": 0.0
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.0011695906432748538
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.0035087719298245615
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.016374269005847954
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.021052631578947368
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.029239766081871343
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.031578947368421054
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.08304093567251462
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.08538011695906433
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.15555555555555556
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.15789473684210525
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.1672514619883041
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.1695906432748538
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.18128654970760233
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.18362573099415205
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.5894736842105263
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.591812865497076
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.6783625730994152
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.6807017543859649
+                },
+                {
+                    "name": 0.0,
+                    "value": 0.9847953216374269
+                },
+                {
+                    "name": 0.00946372239747634,
+                    "value": 0.9847953216374269
+                },
+                {
+                    "name": 0.00946372239747634,
+                    "value": 0.9871345029239766
+                },
+                {
+                    "name": 0.012618296529968454,
+                    "value": 0.9871345029239766
+                },
+                {
+                    "name": 0.012618296529968454,
+                    "value": 0.9906432748538012
+                },
+                {
+                    "name": 0.015772870662460567,
+                    "value": 0.9906432748538012
+                },
+                {
+                    "name": 0.015772870662460567,
+                    "value": 0.991812865497076
+                },
+                {
+                    "name": 0.022082018927444796,
+                    "value": 0.991812865497076
+                },
+                {
+                    "name": 0.022082018927444796,
+                    "value": 0.9929824561403509
+                },
+                {
+                    "name": 0.028391167192429023,
+                    "value": 0.9929824561403509
+                },
+                {
+                    "name": 0.028391167192429023,
+                    "value": 0.9941520467836257
+                },
+                {
+                    "name": 0.03785488958990536,
+                    "value": 0.9941520467836257
+                },
+                {
+                    "name": 0.03785488958990536,
+                    "value": 0.9953216374269006
+                },
+                {
+                    "name": 0.04100946372239748,
+                    "value": 0.9953216374269006
+                },
+                {
+                    "name": 0.04100946372239748,
+                    "value": 0.9964912280701754
+                },
+                {
+                    "name": 0.08517350157728706,
+                    "value": 0.9964912280701754
+                },
+                {
+                    "name": 0.08517350157728706,
+                    "value": 0.9976608187134502
+                },
+                {
+                    "name": 0.14511041009463724,
+                    "value": 0.9976608187134502
+                },
+                {
+                    "name": 0.14511041009463724,
+                    "value": 0.9988304093567252
+                },
+                {
+                    "name": 0.22397476340694006,
+                    "value": 0.9988304093567252
+                },
+                {
+                    "name": 0.22397476340694006,
+                    "value": 1.0
+                },
+                {
+                    "name": 1.0,
+                    "value": 1.0
+                }
+            ]
+        }
+    ],
+    "raw": {
+        "0": {
+            "metric": "TP",
+            "score": 317.0,
+            "class": 0
+        },
+        "1": {
+            "metric": "TN",
+            "score": 837.0,
+            "class": 0
+        },
+        "2": {
+            "metric": "FP",
+            "score": 18.0,
+            "class": 0
+        },
+        "3": {
+            "metric": "FN",
+            "score": 0.0,
+            "class": 0
+        },
+        "4": {
+            "metric": "Sensitivity",
+            "score": 1.0,
+            "class": 0
+        },
+        "5": {
+            "metric": "Specificity",
+            "score": 0.9789473684210527,
+            "class": 0
+        },
+        "6": {
+            "metric": "Precision",
+            "score": 0.9462686567164179,
+            "class": 0
+        },
+        "7": {
+            "metric": "FPR",
+            "score": 0.021052631578947368,
+            "class": 0
+        },
+        "8": {
+            "metric": "FNR",
+            "score": 0.0,
+            "class": 0
+        },
+        "9": {
+            "metric": "FDR",
+            "score": 0.05373134328358209,
+            "class": 0
+        },
+        "10": {
+            "metric": "Accuracy",
+            "score": 0.984641638225256,
+            "class": 0
+        },
+        "11": {
+            "metric": "F1",
+            "score": 0.9723926380368099,
+            "class": 0
+        },
+        "12": {
+            "metric": "AUC",
+            "score": 0.999232571439113,
+            "class": 0
+        },
+        "13": {
+            "metric": "TP",
+            "score": 837.0,
+            "class": 1
+        },
+        "14": {
+            "metric": "TN",
+            "score": 317.0,
+            "class": 1
+        },
+        "15": {
+            "metric": "FP",
+            "score": 0.0,
+            "class": 1
+        },
+        "16": {
+            "metric": "FN",
+            "score": 18.0,
+            "class": 1
+        },
+        "17": {
+            "metric": "Sensitivity",
+            "score": 0.9789473684210527,
+            "class": 1
+        },
+        "18": {
+            "metric": "Specificity",
+            "score": 1.0,
+            "class": 1
+        },
+        "19": {
+            "metric": "Precision",
+            "score": 1.0,
+            "class": 1
+        },
+        "20": {
+            "metric": "FPR",
+            "score": 0.0,
+            "class": 1
+        },
+        "21": {
+            "metric": "FNR",
+            "score": 0.021052631578947368,
+            "class": 1
+        },
+        "22": {
+            "metric": "FDR",
+            "score": 0.0,
+            "class": 1
+        },
+        "23": {
+            "metric": "Accuracy",
+            "score": 0.984641638225256,
+            "class": 1
+        },
+        "24": {
+            "metric": "F1",
+            "score": 0.9893617021276596,
+            "class": 1
+        },
+        "25": {
+            "metric": "AUC",
+            "score": 0.999232571439113,
+            "class": 1
+        }
+    }
+}

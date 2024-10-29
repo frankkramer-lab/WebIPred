@@ -1,0 +1,258 @@
+<div *ngIf="predictForm">
+  <ngb-accordion
+    #acc="ngbAccordion"
+    [closeOthers]="true"
+    activeIds="step1"
+    [destroyOnHide]="false"
+  >
+    <ngb-panel id="step1" #step1>
+      <ng-template ngbPanelTitle>
+        <span *ngIf="predictForm.value.step === 1">
+          <fa-icon icon="bookmark"></fa-icon>&nbsp;Load model
+        </span>
+        <span *ngIf="predictForm.value.step > 1" class="text-muted">
+          <fa-icon icon="check-circle"></fa-icon>&nbsp;Load model
+        </span>
+      </ng-template>
+
+      <ng-template ngbPanelContent>
+        <ng-container [ngTemplateOutlet]="stepOneContent"></ng-container>
+      </ng-template>
+    </ngb-panel>
+
+    <ngb-panel id="step2" #step2>
+      <ng-template ngbPanelTitle>
+        <span *ngIf="predictForm.value.step === 2">
+          <fa-icon icon="image"></fa-icon>&nbsp;Select images
+        </span>
+        <span *ngIf="predictForm.value.step > 2" class="text-muted">
+          <fa-icon icon="check-circle"></fa-icon>&nbsp;Select images
+        </span>
+        <span *ngIf="predictForm.value.step < 2" class="text-muted">
+          <fa-icon icon="asterisk"></fa-icon>&nbsp;Select images
+        </span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <ng-container [ngTemplateOutlet]="stepTwoContent"></ng-container>
+      </ng-template>
+    </ngb-panel>
+
+    <!--    <ngb-panel id="step3" #step3>-->
+    <!--      <ng-template ngbPanelTitle>-->
+    <!--        <span *ngIf="predictForm.value.step === 3">-->
+    <!--          <fa-icon icon="plus"></fa-icon>&nbsp;Options-->
+    <!--        </span>-->
+    <!--        <span *ngIf="predictForm.value.step > 3" class="text-muted">-->
+    <!--          <fa-icon icon="check-circle"></fa-icon>&nbsp;Options-->
+    <!--        </span>-->
+    <!--        <span *ngIf="predictForm.value.step < 3" class="text-muted">-->
+    <!--          <fa-icon icon="asterisk"></fa-icon>&nbsp;Options-->
+    <!--        </span>-->
+    <!--      </ng-template>-->
+    <!--      <ng-template ngbPanelContent>-->
+    <!--        <ng-container [ngTemplateOutlet]="stepThreeContent"></ng-container>-->
+    <!--      </ng-template>-->
+    <!--    </ngb-panel>-->
+
+    <ngb-panel id="step3" #step3>
+      <ng-template ngbPanelTitle>
+        <span *ngIf="predictForm.value.step === 3">
+          <fa-icon icon="flag-checkered"></fa-icon>&nbsp;Let's go!
+        </span>
+        <span *ngIf="predictForm.value.step > 3" class="text-muted">
+          <fa-icon icon="check-circle"></fa-icon>&nbsp;Let's go!
+        </span>
+        <span *ngIf="predictForm.value.step < 3" class="text-muted">
+          <fa-icon icon="asterisk"></fa-icon>&nbsp;Let's go!
+        </span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <ng-container [ngTemplateOutlet]="stepThreeContent"></ng-container>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+
+  <!-- CONTENT: 1 -->
+  <ng-template #stepOneContent>
+    <h3 class="display-3">Select a model</h3>
+
+    <p>
+      The model you choose, should be applicable to the images you wish to
+      predict. You can view the model's description by clicking on the table
+      row.
+    </p>
+
+    <div class="row mt-3" *ngIf="predictForm">
+      <div [ngClass]="predictForm.value.model === null ? 'col-12' : 'col-8'">
+        <app-model-list
+          [availableModels]="availableModels"
+          [activeModel]="predictForm.value.model"
+          [modelFilterTerm]="modelFilterTerm"
+          (modelSelectionChangedEmitter)="
+            modelSelectionChangedEmitter.emit($event)
+          "
+          (filterTermChangedEmitter)="filterTermChangedEmitter.emit($event)"
+        ></app-model-list>
+
+        <!-- stepper navigation -->
+        <app-stepper-navigation
+          *ngIf="predictForm"
+          [disabledLeft]="true"
+          [disabledRight]="predictForm.value.model === null"
+          [info]="
+            predictForm.value.model === null
+              ? 'You are required to select a model'
+              : ''
+          "
+          (rightClickedEmitter)="nextStep()"
+        ></app-stepper-navigation>
+      </div>
+
+      <div class="col-4" *ngIf="predictForm.value.model !== null">
+        <app-model-info
+          [model]="predictForm.value.model"
+          (copyModelIdEmitter)="copyModelIdEmitter.emit($event)"
+        ></app-model-info>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- CONTENT: 2 -->
+  <ng-template #stepTwoContent>
+    <h3 class="display-3">Select images</h3>
+
+    <p>
+      You can select multiple images to predict with the model you chose. We
+      accept any image format.
+    </p>
+
+    <input
+      type="file"
+      accept="image/*"
+      [multiple]="true"
+      [hidden]="true"
+      #imageUpload
+      (click)="imageUpload.value = ''; numImagesSelected = 0"
+      (change)="
+        numImagesSelected = imageUpload.files ? imageUpload.files.length : 0
+      "
+      [ngrxFormControlState]="predictForm.controls.images"
+    />
+
+    <div class="row mb-3 d-inline-flex">
+      <div class="col-auto">
+        <button
+          class="btn btn-outline-secondary btn-fab"
+          type="button"
+          (click)="imageUpload.click()"
+        >
+          <fa-icon icon="plus"></fa-icon>
+        </button>
+      </div>
+      <div class="col align-items-center" *ngIf="imageUpload.files">
+        <span *ngIf="imageUpload.files.length > 0">{{
+          imageUpload.files | filename
+        }}</span>
+      </div>
+    </div>
+
+    <app-stepper-navigation
+      [disabledLeft]="false"
+      [disabledRight]="numImagesSelected === 0"
+      [info]="
+        numImagesSelected === 0
+          ? 'You are required to select at least one image'
+          : ''
+      "
+      (leftClickedEmitter)="previousStep()"
+      (rightClickedEmitter)="nextStep()"
+    ></app-stepper-navigation>
+  </ng-template>
+
+  <!-- CONTENT: 3 -->
+  <!--  <ng-template #stepThreeContent>-->
+  <!--    <p>Step 3 content</p>-->
+  <!--    <app-stepper-navigation-->
+  <!--      [disabledLeft]="false"-->
+  <!--      [disabledRight]="false"-->
+  <!--      (leftClickedEmitter)="previousStep()"-->
+  <!--      (rightClickedEmitter)="nextStep()"-->
+  <!--    ></app-stepper-navigation>-->
+  <!--  </ng-template>-->
+
+  <!-- CONTENT: 3 -->
+  <ng-template #stepThreeContent>
+    <!-- Summary -->
+    <table class="table mb-3">
+      <tbody>
+        <tr *ngIf="predictForm.value.model">
+          <td>Model</td>
+          <td>{{ predictForm.value.model.name | crop : 100 }}</td>
+        </tr>
+        <tr>
+          <td>Images</td>
+          <td>
+            <span *ngIf="numImagesSelected === 0">No images selected!</span>
+            <span *ngIf="numImagesSelected === 1">1 image selected</span>
+            <span *ngIf="numImagesSelected > 1"
+              >{{ numImagesSelected }} images selected</span
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- BEFORE prediction in progress -->
+    <div class="row" *ngIf="predictForm.value.predictInProgress === false">
+      <div class="col-auto">
+        <button
+          type="button"
+          class="btn btn-outline-danger"
+          (click)="resetForm()"
+        >
+          Discard prediction
+        </button>
+      </div>
+      <div class="col-auto">
+        <button
+          type="button"
+          class="btn btn-outline-success"
+          [disabled]="
+            numImagesSelected === 0 || predictForm.value.model === null
+          "
+          (click)="predict(predictForm.value.model)"
+        >
+          Start prediction
+        </button>
+      </div>
+    </div>
+
+    <!-- AFTER prediction in progress -->
+    <div class="row" *ngIf="predictForm.value.predictInProgress === true">
+      <div class="col-auto">
+        <button
+          type="button"
+          class="btn btn-outline-danger"
+          (click)="resetForm()"
+        >
+          Start another prediction
+        </button>
+      </div>
+      <div class="col-auto">
+        <a
+          role="button"
+          class="btn btn-outline-success"
+          routerLink="/predict/history"
+        >
+          To prediction history
+        </a>
+      </div>
+    </div>
+
+    <app-stepper-navigation
+      [disabledLeft]="false"
+      [disabledRight]="true"
+      (leftClickedEmitter)="previousStep()"
+    ></app-stepper-navigation>
+  </ng-template>
+</div>

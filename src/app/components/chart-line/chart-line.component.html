@@ -1,0 +1,15 @@
+<h6 class="display-6" *ngIf="title">{{ title }}</h6>
+
+<ngx-charts-line-chart
+  scheme="picnic"
+  [legend]="true"
+  [showXAxisLabel]="true"
+  [showYAxisLabel]="true"
+  [xAxis]="true"
+  [yAxis]="true"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  [results]="chart"
+  [yScaleMax]="1"
+  [xScaleMax]="1"
+></ngx-charts-line-chart>

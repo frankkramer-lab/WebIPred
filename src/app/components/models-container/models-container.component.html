@@ -1,0 +1,23 @@
+<!-- Models -->
+<app-models
+  [availableModels]="availableModels$ | async"
+  [activeModel]="activeModel$ | async"
+  [filterTerm]="filterTerm$ | async"
+  (setModelEmitter)="setActiveModel($event)"
+  (filterTermChangedEmitter)="filterModels($event)"
+  (copyModelIdEmitter)="copyModelId($event)"
+></app-models>
+
+<!-- Evaluation -->
+<app-evaluation
+  [activeModel]="activeModel$ | async"
+  [evaluation]="activeModelEvaluation$ | async"
+  [metricOfInterest]="activeEvaluationMetric$ | async"
+  [metricDuration]="metricDuration$ | async"
+  [metricDistribution]="metricDistribution$ | async"
+  [barTypeMetrics]="barChartType$ | async"
+  [confusionMatrixType]="confusionMatrixType$ | async"
+  (evaluationMetricChangedEmitter)="setMetric($event)"
+  (exportEvaluationEmitter)="exportEvaluation()"
+  (confusionMatrixModeChangedEmitter)="changeConfusionMatrixMode($event)"
+></app-evaluation>

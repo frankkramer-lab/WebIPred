@@ -1,0 +1,80 @@
+<h6 class="display-6" *ngIf="prediction">
+  <span>
+    Probabilities
+    <button
+      *ngIf="prediction.result"
+      type="button"
+      class="btn btn-outline-success"
+      (click)="exportPredictionEmitter.emit(prediction)"
+    >
+      <fa-icon icon="file-arrow-down"></fa-icon>&nbsp;Download prediction as CSV
+    </button>
+  </span>
+</h6>
+
+<!-- probabilities as chart -->
+
+<app-predict-probabilities-chart
+  [prediction]="prediction"
+  [preferredChartType]="preferredChartType"
+  [preferredChartOrderType]="preferredProbabilitiesOrder"
+  (chartOrderChangedEmitter)="probabilitiesChangedEmitter.emit($event)"
+></app-predict-probabilities-chart>
+
+<!-- table -->
+<app-predict-probabilities-table
+  [prediction]="prediction"
+  [markAssignedClass]="markAssignedClass"
+  [multilabelThreshold]="multilabelThreshold"
+  [xaiClassInProcess]="xaiClassInProcess"
+  [xaiPredictionInProcess]="xaiPredictionInProcess"
+  (generateGradCamEmitter)="generateGradCamEmitter.emit($event)"
+  (showGradCamEmitter)="showGradCamEmitter.emit($event)"
+></app-predict-probabilities-table>
+
+<h6 class="display-6">Options</h6>
+
+<!-- checkbox to mark assigned class -->
+<div class="form-check">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    id="markClass"
+    [(ngModel)]="markAssignedClass"
+  />
+  <label class="form-check-label" for="markClass">
+    Highlight assigned class
+  </label>
+</div>
+
+<!-- MULTILABEL: Slider to highlight all greater than threshold -->
+<div
+  *ngIf="
+    prediction &&
+    prediction.model &&
+    prediction.model.isMultiLabel &&
+    markAssignedClass
+  "
+  class="row"
+>
+  <label for="threshold" class="col-lg-4 col-form-label">Threshold</label>
+  <div class="col-lg-2">
+    <input
+      type="text"
+      class="form-control"
+      [readonly]="true"
+      [value]="multilabelThreshold"
+    />
+  </div>
+  <div class="col-lg-6">
+    <input
+      type="range"
+      class="form-range"
+      id="threshold"
+      [(ngModel)]="multilabelThreshold"
+      [min]="0"
+      [max]="1"
+      [step]="0.01"
+    />
+  </div>
+</div>

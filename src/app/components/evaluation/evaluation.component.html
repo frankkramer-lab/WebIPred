@@ -1,0 +1,100 @@
+<div *ngIf="evaluation" class="m-3">
+  <h5 class="display-5">
+    <span> Evaluation </span>
+    <span>
+      <button
+        type="button"
+        class="btn btn-outline-success"
+        (click)="exportEvaluationEmitter.emit()"
+      >
+        <fa-icon icon="file-arrow-down"></fa-icon>&nbsp;Save model evaluation as
+        CSV
+      </button>
+    </span>
+  </h5>
+
+  <!-- Overview charts -->
+  <div *ngIf="evaluation">
+    <!-- class distribution -->
+    <div>
+      <app-chart-metric
+        [metric]="metricDistribution"
+        [preferredBarChartFormat]="barTypeMetrics"
+      ></app-chart-metric>
+    </div>
+
+    <!-- duration -->
+    <div>
+      <app-chart-metric
+        [metric]="metricDuration"
+        [preferredBarChartFormat]="barTypeMetrics"
+      ></app-chart-metric>
+    </div>
+
+    <hr />
+  </div>
+
+  <!-- Select metric via dropdown -->
+  <div class="row mb-5" *ngIf="evaluation && activeModel">
+    <div class="col">
+      <p>
+        Inspect the model's performance further, by selecting a metric of
+        interest in the dropdown on the right. We provide some information about
+        the metric in order to help you understand what the charts visualize.
+      </p>
+    </div>
+    <div class="col-auto">
+      <!-- dropdown -->
+      <div ngbDropdown class="d-inline-block">
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          id="selectEvalMetric"
+          ngbDropdownToggle
+        >
+          {{
+            metricOfInterest
+              ? metricOfInterest.name ??
+                (metricOfInterest.key | evalName | titlecase)
+              : "Select metric"
+          }}
+        </button>
+        <div
+          ngbDropdownMenu
+          aria-labelledby="selectEvalMetric"
+          *ngIf="confusionMatrixType !== null"
+        >
+          <ng-container
+            *ngFor="
+              let metric of evaluation | evalViable : activeModel.isMultiLabel
+            "
+          >
+            <button
+              ngbDropdownItem
+              (click)="
+                evaluationMetricChangedEmitter.emit(
+                  metric === 'confusion_matrix'
+                    ? metric + '_' + confusionMatrixType
+                    : metric
+                )
+              "
+            >
+              {{ metric | evalName | titlecase }}
+            </button>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- render info about metric + metric -->
+  <app-chart-metric
+    *ngIf="metricOfInterest"
+    [metric]="metricOfInterest"
+    [preferredBarChartFormat]="barTypeMetrics"
+    [preferredConfusionMatrixFormat]="confusionMatrixType"
+    (confusionMatrixModeChangedEmitter)="
+      confusionMatrixModeChangedEmitter.emit($event)
+    "
+  ></app-chart-metric>
+</div>

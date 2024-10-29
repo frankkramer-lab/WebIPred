@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-auto">
+    <button
+      type="button"
+      class="btn btn-link text-decoration-none"
+      [disabled]="disabledLeft"
+      (click)="leftClickedEmitter.emit()"
+    >
+      Previous
+    </button>
+  </div>
+  <div class="col-auto">
+    <button
+      type="button"
+      class="btn btn-link text-decoration-none"
+      [disabled]="disabledRight"
+      (click)="rightClickedEmitter.emit()"
+    >
+      Next
+    </button>
+  </div>
+
+  <div *ngIf="info && info !== ''" class="col">
+    <app-icon-item
+      fontIcon="info-circle"
+      [content]="infoContent"
+    ></app-icon-item>
+  </div>
+</div>
+
+<ng-template #infoContent>
+  <div class="text-muted">{{ info }}</div>
+</ng-template>
