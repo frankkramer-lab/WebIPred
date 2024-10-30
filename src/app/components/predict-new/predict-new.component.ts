@@ -6,12 +6,12 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { NgbAccordion } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroupState } from 'ngrx-forms';
 import { PredictState } from '../../data/state/predict/predict.state';
 import { ModelSummary } from '../../data/schema/model-summary';
 import { Prediction } from '../../data/schema/prediction';
 import { ImageService } from '../../core/service/image.service';
+import { Router } from '@angular/router';
 
 /**
  * Component to create a new prediction
@@ -72,10 +72,6 @@ export class PredictNewComponent {
    */
   @ViewChild('imageUpload') htmlFileInput!: ElementRef;
   /**
-   * DOM reference to the accordion, representing the form steps
-   */
-  @ViewChild(NgbAccordion) accordion!: NgbAccordion;
-  /**
    * Number of images that are selected
    */
   numImagesSelected = 0;
@@ -84,69 +80,16 @@ export class PredictNewComponent {
    * Constructor
    * @param imageService Necessary, to handle the selected images
    */
-  constructor(private imageService: ImageService) {}
+  constructor(private imageService: ImageService,
+              private router: Router) {}
 
-  /**
-   * Move one step backwards through the form
-   */
-  previousStep() {
-    if (this.accordion) {
-      switch (this.predictForm?.value.step) {
-        case 2:
-          this.accordion.collapse('step2');
-          this.accordion.expand('step1');
-          this.stepChangedEmitter.emit(1);
-          break;
-        case 3:
-          this.accordion.collapse('step3');
-          this.accordion.expand('step2');
-          this.stepChangedEmitter.emit(2);
-          break;
-        case 4:
-          this.accordion.collapse('step4');
-          this.accordion.expand('step3');
-          this.stepChangedEmitter.emit(3);
-          break;
-        case 1:
-        default:
-          break;
-      }
-    }
-  }
-
-  /**
-   * Move one step forwards through the form
-   */
-  nextStep() {
-    if (this.accordion) {
-      switch (this.predictForm?.value.step) {
-        case 1:
-          this.accordion.collapse('step1');
-          this.accordion.expand('step2');
-          this.stepChangedEmitter.emit(2);
-          break;
-        case 2:
-          this.accordion.collapse('step2');
-          this.accordion.expand('step3');
-          this.stepChangedEmitter.emit(3);
-          break;
-        case 3:
-          this.accordion.collapse('step3');
-          this.accordion.expand('step4');
-          this.stepChangedEmitter.emit(4);
-          break;
-        case 4:
-        default:
-          break;
-      }
-    }
-  }
 
   /**
    * Start the prediction
    * @param model Selected model
    */
-  predict(model: ModelSummary | null) {
+  predict() {
+    const model = this.availableModels![4];
     if (this.htmlFileInput && model) {
       const input = this.htmlFileInput.nativeElement as HTMLInputElement;
       if (input.files) {
@@ -159,6 +102,7 @@ export class PredictNewComponent {
           .filesToPredictions(fileList, this.predictionId ?? -1, model)
           .subscribe((predictions: Prediction[]) => {
             this.createPredictionEmitter.emit(predictions);
+            this.router.navigate(['/predict/history']);
           });
       }
     }
@@ -169,6 +113,5 @@ export class PredictNewComponent {
    */
   resetForm() {
     this.resetFormEmitter.emit();
-    this.accordion.expand('step1');
   }
 }

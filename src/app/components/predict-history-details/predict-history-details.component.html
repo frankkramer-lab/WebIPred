@@ -5,7 +5,7 @@
     class="alert alert-primary"
     role="alert"
   >
-    <h6 class="display-6">Still processing</h6>
+    <h3>Still processing</h3>
     <p>
       This prediction is still in processing. That might take a few seconds,
       depending on the number of images, their resolutions and the model size.
@@ -15,7 +15,7 @@
   <div class="row w-100">
     <!-- Left: image -->
     <div class="col-sm-5">
-      <h6 class="display-6" *ngIf="activePrediction">Image</h6>
+      <h3 *ngIf="activePrediction">Image</h3>
 
       <!-- Opacity slider -->
       <div
@@ -49,6 +49,7 @@
           [ngStyle]="{ 'width.%': 100, opacity: opacity }"
         ></canvas>
       </div>
+      <p class="fst-italic">{{activePrediction?.filename}}</p>
     </div>
     <div class="col-sm-7">
       <!-- Right: Probabilities table -->

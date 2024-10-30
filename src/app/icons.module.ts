@@ -13,8 +13,8 @@ import {
   faGears,
   faHome,
   faImage,
-  faInfoCircle,
-  faPlus,
+  faInfoCircle, faList,
+  faPlus, faSquarePlus,
   faWandMagicSparkles,
   faXmarkCircle,
 } from '@fortawesome/free-solid-svg-icons';
@@ -38,7 +38,9 @@ export class IconsModule {
       faChevronCircleDown,
       faChevronCircleRight,
       faFileArrowDown,
-      faComments
+      faComments,
+      faList,
+      faSquarePlus
     );
   }
 }

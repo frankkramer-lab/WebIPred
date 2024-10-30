@@ -25,16 +25,13 @@ export class FilenamePipe implements PipeTransform {
    * Applying the filename path requires a list of file paths
    * @param files List of file paths
    */
-  transform(files: FileList | null): string {
-    if (!files) return '';
-    const labelParts: string[] = [];
-
-    for (let i = 0; i < files.length && i < this.maxFilesToDisplay; i++) {
-      labelParts.push(this.getFileName(files[i].name));
+  transform(files: FileList | null): string[] {
+    const res:string[] = [];
+    if(files) {
+      for (let i = 0; i < files.length && i < this.maxFilesToDisplay; i++) {
+        res.push(this.getFileName(files[i].name));
+      }
     }
-
-    return `${labelParts.join(', ')} ${
-      files.length > this.maxFilesToDisplay ? '... ' : ''
-    }(${files.length} ${files.length === 1 ? 'image' : 'images'})`;
+    return res;
   }
 }

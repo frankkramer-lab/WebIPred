@@ -4,29 +4,34 @@
   class="alert alert-primary m-2"
   role="alert"
 >
-  <h6 class="display-6">No predictions yet!</h6>
-  <p>
+  <h4>No predictions yet!</h4>
+  <p class="d-inline-block">
     There are no predictions yet.
-    <a routerLink="/predict/new">Start predicting</a> and return to check out,
-    what your model generated!
+    Start by selecting images to add predictions.
+    <br/>
+    <button type="button" class="btn btn-outline-primary mt-4" routerLink="/predict/new">
+      <fa-icon icon="square-plus"></fa-icon>&nbsp;Add prediction
+    </button>
   </p>
 </div>
 
 <!-- Table overview -->
 <div *ngIf="predictions && predictions.length > 0">
-  <!-- Table head -->
-  <table class="table table-borderless">
-    <thead>
-      <tr class="border-bottom">
-        <th class="w-50">Created on</th>
-        <th class="w-50">Model</th>
-      </tr>
-    </thead>
-  </table>
 
-  <!-- Table body -->
   <div class="table-scrollable scroll-style">
-    <table class="table table-borderless">
+    <table class="table table-hover">
+      <thead>
+      <tr class="border-bottom">
+        <th class="text-end">#</th>
+        <th>File name</th>
+        <th class="text-end">Height</th>
+        <th class="text-end">Width</th>
+        <th>Model</th>
+        <th>Added on</th>
+        <th class="text-end">Status</th>
+      </tr>
+      </thead>
+
       <tbody>
         <tr
           *ngFor="let prediction of predictions"
@@ -38,19 +43,23 @@
               : ''
           "
         >
-          <td class="w-50">
+          <td class="text-end fw-bold">{{ prediction.id }}</td>
+          <td>{{ prediction.filename | crop : 100 }}</td>
+          <td class="text-end">{{ prediction.imageDimensions.height }}px</td>
+          <td class="text-end">{{ prediction.imageDimensions.width }}px</td>
+          <td>{{ prediction.model.name | crop : 100 }}</td>
+          <td>{{ prediction.createdOn | date : "medium" }}</td>
+          <td class="text-end">
             <!-- spinner -->
             <span *ngIf="prediction.inProcessing">
               <div class="spinner-border spinner-border-sm" role="status">
                 <span class="visually-hidden">Loading...</span>
               </div>
             </span>
-            <span *ngIf="!prediction.inProcessing && prediction.result">
+            <span *ngIf="!prediction.inProcessing && prediction.result" class="text-primary">
               <fa-icon icon="check-circle"></fa-icon>
             </span>
-            {{ prediction.createdOn | date : "medium" }}
           </td>
-          <td class="w-50">{{ prediction.model.name | crop : 100 }}</td>
         </tr>
       </tbody>
     </table>

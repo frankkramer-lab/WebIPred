@@ -1,4 +1,4 @@
-<h6 class="display-6" *ngIf="prediction">
+<h3 *ngIf="prediction">
   <span>
     Probabilities
     <button
@@ -10,7 +10,7 @@
       <fa-icon icon="file-arrow-down"></fa-icon>&nbsp;Download prediction as CSV
     </button>
   </span>
-</h6>
+</h3>
 
 <!-- probabilities as chart -->
 
@@ -32,7 +32,7 @@
   (showGradCamEmitter)="showGradCamEmitter.emit($event)"
 ></app-predict-probabilities-table>
 
-<h6 class="display-6">Options</h6>
+<h4>Options</h4>
 
 <!-- checkbox to mark assigned class -->
 <div class="form-check">
