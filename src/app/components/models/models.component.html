@@ -1,19 +1,9 @@
 <!-- table + description -->
 <div class="row m-2">
-  <!-- table -->
-  <div [ngClass]="activeModel === null ? 'col-12' : 'col-7'">
-    <app-model-list
-      [availableModels]="availableModels"
-      [activeModel]="activeModel"
-      [modelFilterTerm]="filterTerm"
-      (modelSelectionChangedEmitter)="setModelEmitter.emit($event)"
-      (filterTermChangedEmitter)="filterTermChangedEmitter.emit($event)"
-    ></app-model-list>
-  </div>
   <!-- description -->
-  <div class="col-5" *ngIf="activeModel">
+  <div class="col-5" *ngIf="availableModels">
     <app-model-info
-      [model]="activeModel"
+      [model]="availableModels[activeModelNr]"
       (copyModelIdEmitter)="copyModelIdEmitter.emit($event)"
     ></app-model-info>
   </div>

@@ -35,7 +35,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 
 import { PredictProbabilitiesComponent } from './components/predict-probabilities/predict-probabilities.component';
-import { ToastsComponent } from './layout/toasts/toasts.component';
 import { IconsModule } from './icons.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartHeatmapComponent } from './components/chart-heatmap/chart-heatmap.component';
@@ -73,7 +72,6 @@ import { PredictHistoryDetailsComponent } from './components/predict-history-det
     StepperNavigationComponent,
     NavbarComponent,
     PredictProbabilitiesComponent,
-    ToastsComponent,
     ChartHeatmapComponent,
     ChartVbarComponent,
     ChartLineComponent,

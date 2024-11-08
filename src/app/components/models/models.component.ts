@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { ModelSummary } from '../../data/schema/model-summary';
 import { MetricDescription } from '../../data/schema/metric-description';
 
@@ -10,15 +10,16 @@ import { MetricDescription } from '../../data/schema/metric-description';
   templateUrl: './models.component.html',
   styleUrls: ['./models.component.scss'],
 })
-export class ModelsComponent {
+export class ModelsComponent{
   /**
    * List of available models
    */
   @Input() availableModels!: ModelSummary[] | null;
   /**
-   * Currently selected model
+   * Currently selected model: 16
    */
   @Input() activeModel!: ModelSummary | null;
+  protected activeModelNr = 4;
   /**
    * Term to filter the available models by
    */

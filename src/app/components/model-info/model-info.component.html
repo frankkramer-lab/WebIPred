@@ -1,20 +1,9 @@
-<div class="card" *ngIf="model">
-  <div class="card-body">
-    <h5 class="card-title">
+<div class="container-fluid" *ngIf="model">
+    <h1 >
       {{ model.name | crop : 100 }}
-    </h5>
+    </h1>
 
     <h6 class="card-subtitle mb-2 text-muted">
-      <span
-        placement="top"
-        ngbTooltip="Click to copy"
-        container="body"
-        [openDelay]="1000"
-        class="fw-normal badge rounded-pill text-bg-primary cursor p-2 m-1"
-        (click)="copyModelIdEmitter.emit(model.id)"
-      >
-        ID: {{ model.id }}
-      </span>
       <span
         *ngIf="model.medicalDiscipline"
         class="fw-light badge rounded-pill text-bg-light p-2 m-1"
@@ -28,5 +17,4 @@
     </h6>
 
     <p [innerHTML]="model.description" class="card-text"></p>
-  </div>
 </div>

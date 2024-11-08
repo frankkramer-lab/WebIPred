@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  host: 'http://localhost:4200',
-  backendPath: 'http://localhost:5000',
+  host: 'https://raw.githubusercontent.com/frankkramer-lab/WebIPred/refs/heads/master',
+  backendPath: 'https://raw.githubusercontent.com/frankkramer-lab/WebIPred/refs/heads/master/assets/mock-data',
 };
