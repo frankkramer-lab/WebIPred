@@ -24,14 +24,7 @@ export class ApiService {
    * @param backendPath Path to the backend
    */
   loadModelSummaries(backendPath: string): Observable<ModelResponse> {
-    let url = '';
-
-    if (environment.production) {
-      url = `${backendPath}${backendPath.endsWith('/') ? '' : '/'}models`;
-    } else {
-      url = `${backendPath}${backendPath.endsWith('/') ? '' : '/'}all.json`;
-    }
-
+    const url = `${backendPath}${backendPath.endsWith('/') ? '' : '/'}all.json`;
     return this.httpClient.get<ModelResponse>(url);
   }
 
